@@ -18,6 +18,6 @@ public class User {
     private String name;
     private String email;
 
-    private List<Tarefa> tarefas = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
 
 }
