@@ -1,5 +1,6 @@
-package br.com.basis.sgt2.entities;
+package br.com.basis.sgt2.dto;
 
+import br.com.basis.sgt2.entities.User;
 import br.com.basis.sgt2.entities.enums.EnumImportance;
 import br.com.basis.sgt2.entities.enums.EnumProgress;
 import lombok.AllArgsConstructor;
@@ -7,11 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
+
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class Tarefa {
+public class TasksDTO {
 
     private Long id;
     private String name;
