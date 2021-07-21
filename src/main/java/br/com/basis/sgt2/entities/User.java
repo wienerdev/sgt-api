@@ -1,36 +1,23 @@
 package br.com.basis.sgt2.entities;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
 
-public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    private Integer id;
+    private Long id;
     private String name;
     private String email;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return getId().equals(user.getId());
-    }
+    private List<Task> tasks = new ArrayList<>();
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 }

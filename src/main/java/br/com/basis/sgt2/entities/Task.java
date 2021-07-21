@@ -27,4 +27,7 @@ public class Task {
     private List<Comment> commentList = new ArrayList<>();
 
 
+
+    private List<Comment> commentList = new ArrayList<>();
+
 }
