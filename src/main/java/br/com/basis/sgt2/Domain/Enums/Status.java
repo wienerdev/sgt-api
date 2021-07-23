@@ -1,4 +1,4 @@
-package Enums;
+package br.com.basis.sgt2.Domain.Enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
