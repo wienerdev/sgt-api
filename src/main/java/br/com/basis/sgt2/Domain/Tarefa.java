@@ -10,19 +10,19 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name ="TAREFAS")
+@Table(name ="tarefas")
 public class Tarefa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "dataInicio")
+    @Column(name = "data_inicio")
     private String dataInicio;
 
-    @Column(name = "teminoPrevisto")
+    @Column(name = "termino_previsto")
     private String terminoPrevisto;
 
-    @Column(name = "horasEfetivas")
+    @Column(name = "horas_efetivas")
     private String horasEfetivas;
 
     @Column(name = "status")
