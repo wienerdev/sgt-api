@@ -1,17 +1,7 @@
 version: '2'
 services:
-  tarefax-postgres:
+  sgt-postgres:
     extends:
       file: postgres/postgres.yml
       service: postgres
-    container_name: tarefax-postgres
-  tarefax-minio:
-    extends:
-      file: minio/minio.yml
-      service: minio
-    container_name: tarefax-minio
-  tarefax-elasticsearch:
-    extends:
-      file: elasticsearch/elasticsearch.yml
-      service: elasticsearch
-    container_name: tarefax-elasticsearch
+    container_name: sgt-postgres

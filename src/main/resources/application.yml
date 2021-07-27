@@ -6,6 +6,6 @@ spring:
     password: SGT
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
-#    drop-first: true
+#   drop-first: true
 server:
   port: 8090

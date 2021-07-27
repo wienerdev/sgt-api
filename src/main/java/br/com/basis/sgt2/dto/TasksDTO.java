@@ -1,25 +1,28 @@
 package br.com.basis.sgt2.dto;
 
-import br.com.basis.sgt2.entities.User;
-import br.com.basis.sgt2.entities.enums.EnumImportance;
 import br.com.basis.sgt2.entities.enums.EnumProgress;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.List;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-public class TasksDTO {
+public class TasksDTO implements Serializable {
 
     private Long id;
-    private String name;
+    private String title;
     private String description;
-    private EnumImportance importance;
+    private LocalDate dateTask;
     private EnumProgress progress;
-    private User user;
+    private Long user;
+    List<CommentsDTO> comments;
+
 
 }

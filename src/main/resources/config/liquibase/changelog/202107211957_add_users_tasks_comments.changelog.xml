@@ -10,17 +10,19 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(100)"/>
-            <column name="email" type="varchar(200)"/>
+            <column name="email" type="varchar(50)"/>
         </createTable>
 
         <createTable tableName="tb_tasks">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="varchar(100)"/>
-            <column name="description" type="varchar(200)"/>
-            <column name="importance" type="varchar(12)"/>
+            <column name="title" type="varchar(50)"/>
+            <column name="description" type="varchar(100)"/>
+            <column name="date_task" type="date"/>
             <column name="progress" type="varchar(12)"/>
+            <column name="id_user" type="bigint"/>
+
         </createTable>
 
         <createTable tableName="tb_comments">
@@ -28,20 +30,22 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="comments" type="varchar(250)"/>
-            <column name="description" type="varchar(100)"/>
+            <column name="data_comment" type="date"/>
+            <column name="id_tasks" type="bigint"/>
+
         </createTable>
 
         <addForeignKeyConstraint baseTableName="tb_tasks"
-                                 baseColumnNames="id_users"
-                                 constraintName="FK_USER_TASK"
+                                 baseColumnNames="id_user"
+                                 constraintName="FK_USER_TASKS"
                                  referencedTableName="tb_users"
                                  referencedColumnNames="id"/>
 
         <addForeignKeyConstraint baseTableName="tb_comments"
-                                 baseColumnNames="id_task"
-                                 constraintName="FK_TASK_COMMENTS"
-                                 referencedTableName="tb_tasks"
-                                 referencedColumnNames="id"/>
+                                  baseColumnNames="id_tasks"
+                                  constraintName="FK_COMMENTS_TASKS"
+                                  referencedTableName="tb_tasks"
+                                  referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

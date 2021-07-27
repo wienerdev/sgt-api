@@ -3,6 +3,6 @@ services:
   postgres:
     image: postgres:11.5-alpine
     environment:
-      POSTGRES_PASSWORD: SGT123
+      POSTGRES_PASSWORD: TAREFAX
     ports:
       - "5432:5432"
