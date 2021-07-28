@@ -1,16 +1,11 @@
 package br.com.basis.sgt2.service;
 
 import br.com.basis.sgt2.dto.TasksDTO;
-import br.com.basis.sgt2.dto.UserDTO;
 import br.com.basis.sgt2.dto.mapper.TasksMapper;
-import br.com.basis.sgt2.dto.mapper.UserMapper;
 import br.com.basis.sgt2.entities.Tasks;
-import br.com.basis.sgt2.entities.User;
 import br.com.basis.sgt2.repositories.TasksRepository;
-import br.com.basis.sgt2.repositories.UserRepository;
 import br.com.basis.sgt2.service.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +24,10 @@ public class TasksService {
     }
 
     public List<TasksDTO> findByTitle(String title) {
-            return tasksMapper.toDto(tasksRepository.findAllByTitle(title));
+        if (title != null && !title.isEmpty()) {
+            return tasksMapper.toDto(tasksRepository.findByTitle(title));
+        }
+        throw new EntityNotFoundException();
     }
 
     public TasksDTO findById(Long id) {

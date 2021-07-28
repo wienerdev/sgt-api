@@ -11,7 +11,9 @@ import java.util.List;
 @Repository
 public interface TasksRepository extends JpaRepository<Tasks, Long> {
 
+    List<Tasks> findAllByTitle(String title);
+
     @Query("FROM Tasks WHERE title LIKE %:title%")
-    List<Tasks> findAllByTitle(@Param("title") String title);
+    List<Tasks> findByTitle(@Param("title") String title);
 
 }

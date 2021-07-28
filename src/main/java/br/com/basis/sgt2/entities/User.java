@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,4 +26,7 @@ public class User implements Serializable {
 
     @Column(name = "email")
     private String email;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "user")
+    List<Tasks> tasks;
 }

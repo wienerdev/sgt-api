@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/task")
+@RequestMapping("/api/task/")
 @RequiredArgsConstructor
 public class TasksResource {
 
@@ -22,7 +22,7 @@ public class TasksResource {
         return new ResponseEntity<>(tasksService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "title")
+    @GetMapping(value = "/?title")
     public ResponseEntity<List<TasksDTO>> findByTitle(@RequestParam("title") String title) {
         return new ResponseEntity<>(tasksService.findByTitle(title), HttpStatus.OK);
     }
