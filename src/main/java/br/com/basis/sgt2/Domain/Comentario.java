@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name ="comnetarios")
+@Table(name ="comentarios")
 public class Comentario {
     @Id
     @Column(name = "id")

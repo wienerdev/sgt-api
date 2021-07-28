@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +29,11 @@ public class Tarefa {
     @Column(name = "status")
     private Status status;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name= "id_comentario")
+    private List<Comentario> comentario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_responsavel")
+    private Responsavel responsavel;
 }

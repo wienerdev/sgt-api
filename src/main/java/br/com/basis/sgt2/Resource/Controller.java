@@ -1,47 +1,40 @@
 package br.com.basis.sgt2.Resource;
 
 
-import br.com.basis.sgt2.Domain.Tarefa;
 import br.com.basis.sgt2.Service.DTO.TarefaDTO;
 import br.com.basis.sgt2.Service.TarefaServices;
-import br.com.basis.sgt2.repository.TarefasRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api")//("/api/tarefas")
+@RequiredArgsConstructor
 public class Controller {
-@Autowired
-TarefasRepository tarefasRepository;
 
-@GetMapping("/tarefas")
-    public ResponseEntity
-    public List<Tarefa> listarProdutos(){
-    return tarefasRepository.findAll();
+    private final TarefaServices tarefaServices;
+
+    @GetMapping("/tarefas")
+    public ResponseEntity<List<TarefaDTO>> listarProdutos(){
+        return ResponseEntity.ok(tarefaServices.obterTodos());
 }
-
-    @GetMapping
-    public ResponseEntity<List<TarefaDTO>> obterTodos(@RequestParam("titulo") String titulo) {
-        return new ResponseEntity<>(TarefaServices.obterTodos(titulo), HttpStatus.OK);
-    }
-
-    @PostMapping
+    @PostMapping("/tarefas")
     public ResponseEntity<TarefaDTO> criarTarefa(@RequestBody TarefaDTO tarefa) {
-        return ResponseEntity.ok(TarefaServices.salvar(tarefa));
+        return ResponseEntity.ok(tarefaServices.salvar(tarefa));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TarefaDTO> obterPorId(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(TarefaServices.obterPorId(id), HttpStatus.OK);
+        return new ResponseEntity<>(tarefaServices.obterPorId(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPorId(@PathVariable("id") Long id) {
-        TarefaServices.deletarPorId(id);
+        tarefaServices.deletarPorId(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

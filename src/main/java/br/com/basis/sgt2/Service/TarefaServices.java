@@ -12,8 +12,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 
-@Transactional // pra que serve esta notacao
-@RequiredArgsConstructor //Esta tambem
+@Transactional
+@RequiredArgsConstructor
 @Service
 public class TarefaServices {
 
@@ -22,11 +22,12 @@ public class TarefaServices {
     private final TarefaMapper tarefaMapper;
 
     public List<TarefaDTO> obterTodos() {
+
         return tarefaMapper.toDTO(tarefasRepository.findAll());
     }
 
     public TarefaDTO obterPorId(Long id) {
-        Tarefa tarefa = tarefasRepository.findById(id);
+        Tarefa tarefa = tarefasRepository.findById(id).orElse(null);
         return tarefaMapper.toDTO(tarefa);
     }
 
