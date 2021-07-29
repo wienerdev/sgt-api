@@ -1,4 +1,4 @@
-package br.com.basis.sgt2.Resource;
+package br.com.basis.sgt2.web.rest;
 
 
 import br.com.basis.sgt2.Service.DTO.TarefaDTO;
@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api")//("/api/tarefas")
 @RequiredArgsConstructor
-public class Controller {
+public class TarefaResouce {
 
     private final TarefaServices tarefaServices;
 
@@ -32,6 +32,11 @@ public class Controller {
         return new ResponseEntity<>(tarefaServices.obterPorId(id), HttpStatus.OK);
     }
 
+    @PutMapping
+    public ResponseEntity<TarefaDTO> atualizarTarefa(@RequestBody TarefaDTO tarefa){
+        return ResponseEntity.ok(tarefaServices.atualizar(tarefa));
+
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarPorId(@PathVariable("id") Long id) {
         tarefaServices.deletarPorId(id);

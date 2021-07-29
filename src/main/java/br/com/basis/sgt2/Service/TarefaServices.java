@@ -36,6 +36,11 @@ public class TarefaServices {
         Tarefa tarefaSalva = tarefasRepository.save(tarefa);
         return tarefaMapper.toDTO(tarefaSalva);
     }
+    public TarefaDTO atualizar(TarefaDTO tarefaDTO){
+        Tarefa tarefa = tarefaMapper.toEntity(tarefaDTO);
+        Tarefa tarefaAtualizada = tarefasRepository.save(tarefa);
+        return tarefaMapper.toDTO(tarefaAtualizada);
+    }
 
     public void deletarPorId(Long id) {
         tarefasRepository.deleteById(id);
