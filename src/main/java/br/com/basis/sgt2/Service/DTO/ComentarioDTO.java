@@ -10,6 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ComentarioDTO {
 
-    private long id;
+    private Long id;
     private String comentario;
 }

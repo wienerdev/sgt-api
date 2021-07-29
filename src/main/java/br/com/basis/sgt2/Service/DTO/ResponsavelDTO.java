@@ -13,6 +13,6 @@ import lombok.Setter;
 
 public class ResponsavelDTO {
 
-    private long id;
+    private Long id;
     private String nome;
 }

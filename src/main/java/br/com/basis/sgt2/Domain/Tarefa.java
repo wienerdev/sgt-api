@@ -30,7 +30,7 @@ public class Tarefa {
     private Status status;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name= "id_comentario")
+    @JoinColumn(name= "id_tarefa")
     private List<Comentario> comentario;
 
     @ManyToOne

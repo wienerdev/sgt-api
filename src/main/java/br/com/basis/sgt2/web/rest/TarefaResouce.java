@@ -6,7 +6,6 @@ import br.com.basis.sgt2.Service.TarefaServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,25 +18,25 @@ public class TarefaResouce {
     private final TarefaServices tarefaServices;
 
     @GetMapping("/tarefas")
-    public ResponseEntity<List<TarefaDTO>> listarProdutos(){
+    public ResponseEntity<List<TarefaDTO>> exibirTarefas(){
         return ResponseEntity.ok(tarefaServices.obterTodos());
 }
+    @GetMapping("/tarefas/{id}")
+    public ResponseEntity<TarefaDTO> obterPorId(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(tarefaServices.obterPorId(id), HttpStatus.OK);
+    }
+
     @PostMapping("/tarefas")
     public ResponseEntity<TarefaDTO> criarTarefa(@RequestBody TarefaDTO tarefa) {
         return ResponseEntity.ok(tarefaServices.salvar(tarefa));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TarefaDTO> obterPorId(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(tarefaServices.obterPorId(id), HttpStatus.OK);
-    }
-
-    @PutMapping
+    @PutMapping("/tarefa")
     public ResponseEntity<TarefaDTO> atualizarTarefa(@RequestBody TarefaDTO tarefa){
         return ResponseEntity.ok(tarefaServices.atualizar(tarefa));
 
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/tarefa/{id}")
     public ResponseEntity<Void> deletarPorId(@PathVariable("id") Long id) {
         tarefaServices.deletarPorId(id);
         return new ResponseEntity<>(HttpStatus.OK);

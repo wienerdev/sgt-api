@@ -20,18 +20,28 @@ public class ResponsavelServices {
     private final ResponsavelMapper responsavelMapper;
 
 
-    public List<ResponsavelDTO> obterTodos(String titulo){
+    public List<ResponsavelDTO> obterTodos(){
         return responsavelMapper.toDTO(responsavelRepository.findAll());
     }
+
     public ResponsavelDTO obterPorId(long id){
-        return responsavelMapper.toDTO(responsavelRepository.findAllById(id));
+        Responsavel responsavel = responsavelRepository.findById(id).orElse(null);
+        return responsavelMapper.toDTO(responsavel);
     }
 
 
     public ResponsavelDTO salvar(ResponsavelDTO responsavelDTO){
+//        responsavelDTO.setId(null);
         Responsavel responsavel = responsavelMapper.toEntity(responsavelDTO);
         Responsavel responsavelSalvar = responsavelRepository.save(responsavel);
         return responsavelMapper.toDTO(responsavelSalvar);
+
+    }
+    public ResponsavelDTO atualizar(ResponsavelDTO responsavelDTO){
+        Responsavel responsavel = responsavelMapper.toEntity((responsavelDTO));
+        Responsavel atualizarResponsavel = responsavelRepository.save(responsavel);
+        return responsavelMapper.toDTO(atualizarResponsavel);
+
 
     }
     public void deletarResponsavel(Long id){
