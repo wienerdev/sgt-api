@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -15,9 +17,9 @@ import java.util.List;
 public class TarefaDTO {
 
         private Long id;
-        private String dataInicio;
-        private String terminoPrevisto;
-        private String horasEfetivas;
+        private LocalDate dataInicio;
+        private LocalDate terminoPrevisto;
+        private int horasEfetivas;
         private Status status;
         private List<ComentarioDTO> comentario;
         private ResponsavelDTO responsavel;

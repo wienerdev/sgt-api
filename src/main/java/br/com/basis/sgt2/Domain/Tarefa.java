@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -18,13 +19,13 @@ public class Tarefa {
     @Column(name = "id")
     private long id;
     @Column(name = "data_inicio")
-    private String dataInicio;
+    private LocalDate dataInicio;
 
     @Column(name = "termino_previsto")
-    private String terminoPrevisto;
+    private LocalDate terminoPrevisto;
 
     @Column(name = "horas_efetivas")
-    private String horasEfetivas;
+    private int horasEfetivas;
 
     @Column(name = "status")
     private Status status;
