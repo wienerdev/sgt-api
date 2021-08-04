@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Tarefa} from './model/tarefa.model';
+import {Comentario} from "./model/comentario.model";
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,7 @@ import {Tarefa} from './model/tarefa.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  tituloPai: string = 'Titulo PAiAAAAAAAAAa';
+  tituloPai: string = 'Titulo Pai';
 
   title = 'bsb-turma';
 
@@ -15,5 +17,23 @@ export class AppComponent {
 
   mostrarTarefaCriada(event: Tarefa): void{
     this.tarefaSalva = event;
-  }
+
+
+       }
+
+       descricaoPai: string = "Descricao Pai";
+
+       descricao = 'bsb-turma';
+
+       comentarioSalvo = new Comentario();
+
+       mostrarComentarioCriado(event: Comentario): void{
+         this.comentarioSalvo = event;
+       }
+
+
+
+
+
+
 }

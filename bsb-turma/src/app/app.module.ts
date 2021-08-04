@@ -6,13 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import { TarefaCrudComponent } from './tarefa-crud/tarefa-crud.component';
+import { ComentarioCrudComponent} from './comentario-crud/comentario-crud.component';
+
+
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ComentarioCrudComponent,
     TarefaCrudComponent
+
   ],
   imports: [
     BrowserModule,

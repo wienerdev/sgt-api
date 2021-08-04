@@ -2,6 +2,11 @@
 <p>{{tarefaSalva.titulo}}</p>
 <p>{{tarefaSalva.descricao}}</p>
 
-<app-tarefa-crud tituloForm="Cadastro de Tarefa" (criarTarefa)="mostrarTarefaCriada($event)"></app-tarefa-crud>
+<app-tarefa-crud tituloForm="Cadastro da Tarefa" (criarTarefa)="mostrarTarefaCriada($event)"></app-tarefa-crud>
 
 
+<p>{{comentarioSalvo.id}}</p>
+<p>{{comentarioSalvo.descricao}}</p>
+<p>{{comentarioSalvo.dataReferencia}}</p>
+
+<app-comentario-crud descricaoForm="Cadastro de comentario" (criarComentario)="mostrarComentarioCriado($event)"></app-comentario-crud>
