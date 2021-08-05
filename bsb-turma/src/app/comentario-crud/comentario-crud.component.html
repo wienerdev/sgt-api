@@ -3,13 +3,14 @@
 >
 <span class="p-float-label">
     <input id="float-input" type="text" [(ngModel)]="comentario.descricao" pInputText>
-    <label for="float-input">Titulo</label>
+    <label for="float-input">Descrição</label>
 </span>
 <br>
+<span class="p-float-label">
+    <input  type="text" [(ngModel)]="comentario.dataReferencia" pInputText>
+    <label for="float-input">Data</label>
+</span>
 <br>
+<button pButton type="button" label="Salvar" (click)="click() "></button>
 <br>
-<br>
-<button pButton type="button" label="Enviar" (click)="click() "></button>
-<br>
-<br>
-<br>
+
