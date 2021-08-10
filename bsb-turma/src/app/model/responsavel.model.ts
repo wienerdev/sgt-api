@@ -1,4 +1,4 @@
 export class Responsavel {
-  id: number;
+  id?: any;
   setor: string;
 }

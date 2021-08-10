@@ -1,35 +1,74 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {InputTextModule} from 'primeng/inputtext';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ButtonModule} from 'primeng/button';
-import { TarefaCrudComponent } from './tarefa-crud/tarefa-crud.component';
-import { ComentarioCrudComponent } from './comentario-crud/comentario-crud.component';
 
 
-import {FormsModule} from '@angular/forms';
+
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {ResponsavelCrudComponent} from './responsavel-crud/responsavel-crud.component';
-import {TipoTarefaCrudComponent} from './tipoTarefa-crud/tipoTarefa-crud.component';
+
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
+import {MatSelectModule} from "@angular/material/select";
+import {MatTableModule} from "@angular/material/table";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatButtonModule} from "@angular/material/button";
+import {HeaderComponent} from "./views/components/template/header/header.component";
+import {FooterComponent} from "./views/components/template/footer/footer.component";
+import {HomeComponent} from "./views/components/template/home/home.component";
+
+import {NavComponent} from "./views/components/template/nav/nav.component";
+import {ResponsavelListarComponent} from "./views/components/responsavel-crud/responsavelListar/responsavel-listar.component";
+import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/responsavelSalvar/responsavel-salvar.component";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ComentarioCrudComponent,
-    TarefaCrudComponent,
-    ResponsavelCrudComponent,
-    TipoTarefaCrudComponent
-
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    HomeComponent,
+    ResponsavelListarComponent,
+    ResponsavelSalvarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule,
-    InputTextModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    MatCardModule,
+    MatTableModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatPaginatorModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
