@@ -6,7 +6,7 @@ import {Responsavel} from "../../../../model/responsavel.model";
 import {ResponsavelService} from "../../../../service/responsavel.service";
 
 @Component({
-  selector: 'app-responsavel-read',
+  selector: 'app-responsavelListar',
   templateUrl: './responsavel-listar.component.html',
   styleUrls: ['./responsavel-listar.component.css']
 })
@@ -20,9 +20,9 @@ export class ResponsavelListarComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'setor'];
   dataSource = new MatTableDataSource<Responsavel>(this.responsavel);
 
-  constructor(private service: ResponsavelService, private router : Router)  { }
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private service: ResponsavelService, private router : Router)  { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -32,14 +32,22 @@ export class ResponsavelListarComponent implements AfterViewInit {
   listar(): void {
     this.service.listar().subscribe((resposta) => {
       this.responsavel = resposta;
-      console.log(resposta)
+      console.log(this.responsavel)
       this.dataSource = new MatTableDataSource<Responsavel>(this.responsavel);
       this.dataSource.paginator = this.paginator;
     })
   }
 
   navigateToSalvar():void{
-    this.router.navigate(['responsavel'])
+    this.router.navigate(['responsavel/salvar'])
+  }
+
+  navigateToDeletar() {
+    this.router.navigate(['responsavel/deletar'])
+  }
+
+  navigateToUpdate() {
+    this.router.navigate(['responsavel/update'])
   }
 
 }

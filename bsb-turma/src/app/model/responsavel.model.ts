@@ -1,4 +1,4 @@
-export class Responsavel {
+export interface Responsavel {
   id?: any;
   setor: string;
 }

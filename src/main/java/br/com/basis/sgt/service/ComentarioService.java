@@ -32,7 +32,8 @@ public class ComentarioService {
         return comentarioMapper.toDto(comentario);
     }
     public ComentarioDTO salvar(ComentarioDTO comentarioDTO) {
-        Comentario comentario = comentarioMapper.toEntity(comentarioDTO);
+        Comentario comentario;
+        comentario = comentarioMapper.toEntity(comentarioDTO);
         Comentario comentarioSalva = comentarioRepository.save(comentario);
         return comentarioMapper.toDto(comentarioSalva);
     }

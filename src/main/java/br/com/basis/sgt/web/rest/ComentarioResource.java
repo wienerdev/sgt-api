@@ -2,17 +2,21 @@ package br.com.basis.sgt.web.rest;
 
 import br.com.basis.sgt.service.ComentarioService;
 import br.com.basis.sgt.service.dto.ComentarioDTO;
+import org.springframework.data.jpa.repository.Temporal;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.TemporalType;
 import java.util.List;
 
-
-
-    @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
     @RequestMapping("/api/comentario")
     public class ComentarioResource {
+
+
+
         private final ComentarioService comentarioService;
         public ComentarioResource(ComentarioService comentarioService) {
             this.comentarioService = comentarioService;

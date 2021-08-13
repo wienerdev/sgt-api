@@ -1,11 +1,11 @@
 <form class="form">
 
-  <h1>NOVO SETOR RESPONSAVEL</h1>
+  <h1>ATUALIZAR SETOR RESPONSAVEL</h1>
 
 
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Novo Setor</mat-label>
+    <mat-label>Atualizar Setor</mat-label>
     <input [(ngModel)]="responsavel.setor" [formControl]="setor" required setor="setor" maxlength="100" matInput placeholder="Ex: Requisitos">
     <mat-error *ngIf="setor.invalid">{{ errorValidSetor() }}</mat-error>
   </mat-form-field>
@@ -13,6 +13,6 @@
 
 
 
-  <button (click)="salvar()" [disabled]="errorValidSetor() || errorValidSetor()" mat-stroked-button color="accent">Salvar</button>
+  <button (click)="update()"mat-stroked-button color="accent">ATUALIZAR</button>
   <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

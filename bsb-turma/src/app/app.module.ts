@@ -31,6 +31,8 @@ import {HomeComponent} from "./views/components/template/home/home.component";
 import {NavComponent} from "./views/components/template/nav/nav.component";
 import {ResponsavelListarComponent} from "./views/components/responsavel-crud/responsavelListar/responsavel-listar.component";
 import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/responsavelSalvar/responsavel-salvar.component";
+import {ResponsavelDeletarComponent} from "./views/components/responsavel-crud/responsavelDeletar/responsavel-deletar.component";
+import {ResponsavelAtualizarComponent} from "./views/components/responsavel-crud/responsavelAtualizar/responsavel-atualizar.component";
 
 
 
@@ -43,6 +45,8 @@ import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/re
     HomeComponent,
     ResponsavelListarComponent,
     ResponsavelSalvarComponent,
+    ResponsavelAtualizarComponent,
+    ResponsavelDeletarComponent
   ],
   imports: [
     BrowserModule,

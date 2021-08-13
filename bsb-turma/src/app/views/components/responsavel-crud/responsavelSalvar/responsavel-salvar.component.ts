@@ -27,12 +27,13 @@ export class ResponsavelSalvarComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/api/responsavel'])
+    this.router.navigate(['responsavel'])
   }
+
 
   salvar(): void {
     this.service.salvar(this.responsavel).subscribe((res) => {
-      this.router.navigate(['/api/responsavel'])
+      this.router.navigate([''])
       this.service.message('Responsavel criado com sucesso!')
     }, erro => {
       if (erro.error.error.match('já cadastrado')) {
@@ -47,6 +48,5 @@ export class ResponsavelSalvarComponent implements OnInit {
     }
     return false;
   }
-
 
 }

@@ -1,21 +1,20 @@
 package br.com.basis.sgt.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.jpa.repository.Temporal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Entity
 @Table(name = "comentario")
 @Getter
 @Setter
+
 public class Comentario {
 
     @Id
@@ -26,7 +25,9 @@ public class Comentario {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "data_referencia")
-    private LocalDate dataReferencia;
+
+    @JsonFormat(pattern = "dd/mm/yyyy")
+    @Column(name = "data")
+    private Date data;
 
 }
