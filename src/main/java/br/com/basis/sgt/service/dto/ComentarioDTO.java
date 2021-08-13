@@ -1,10 +1,10 @@
 package br.com.basis.sgt.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -14,7 +14,9 @@ public class ComentarioDTO {
 
     private Long id;
     private String descricao;
-    private LocalDate dataReferencia;
+
+    @JsonFormat(pattern = "dd/mm/yyyy")
+    private Date data;
 
     private List<ComentarioDTO> comentarios;
 }

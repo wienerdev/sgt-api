@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-08-05T09:23:18-0300",
+    date = "2021-08-12T09:36:37-0300",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_292 (Private Build)"
 )
 @Component
@@ -25,7 +25,7 @@ public class ComentarioMapperImpl implements ComentarioMapper {
 
         comentario.setId( dto.getId() );
         comentario.setDescricao( dto.getDescricao() );
-        comentario.setDataReferencia( dto.getDataReferencia() );
+        comentario.setData( dto.getData() );
 
         return comentario;
     }
@@ -40,7 +40,7 @@ public class ComentarioMapperImpl implements ComentarioMapper {
 
         comentarioDTO.setId( entity.getId() );
         comentarioDTO.setDescricao( entity.getDescricao() );
-        comentarioDTO.setDataReferencia( entity.getDataReferencia() );
+        comentarioDTO.setData( entity.getData() );
 
         return comentarioDTO;
     }
