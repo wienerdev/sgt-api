@@ -20,13 +20,21 @@ const routes: Routes = [
     path:'responsavel/salvar',
     component: ResponsavelSalvarComponent
   },
+  {
+    path: 'responsavel/delete',
+    component: ResponsavelDeletarComponent
+  },
 
   {
-     path: 'tecnicos/delete/:id',
+     path: 'responsavel/delete/:id',
         component: ResponsavelDeletarComponent
       },
     {
     path:'responsavel/update/:id',
+    component: ResponsavelAtualizarComponent
+  },
+  {
+    path:'responsavel/update',
     component: ResponsavelAtualizarComponent
   }
 

@@ -1,18 +1,23 @@
-<form class="form">
+<form [formGroup]="form" class="form">
 
   <h1>EXCLUIR SETOR RESPONSAVEL</h1>
 
 
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Excluir Setor</mat-label>
-    <input [(ngModel)]="responsavel.setor" [formControl]="setor" required setor="setor" maxlength="100" matInput placeholder="Ex: Requisitos">
-    <mat-error *ngIf="setor.invalid">{{ errorValidSetor() }}</mat-error>
+    <mat-label>Digite o ID para excluir o setor desejado</mat-label>
+
+      <mat-select selected="setor" formControlName="id">
+        <mat-option *ngFor="let setor of responsaveis" [value]="setor.values">
+          {{setor.label}}
+        </mat-option>
+
+      </mat-select>
+
+
   </mat-form-field>
 
 
-
-
-  <button (click)="deletar()"mat-stroked-button color="accent">EXCLUIR</button>
-  <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  <button class="mat-elevation-z8" (click)="deletar()"mat-stroked-button color="accent">EXCLUIR</button>
+  <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

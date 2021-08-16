@@ -17,6 +17,4 @@ public class ComentarioDTO {
 
     @JsonFormat(pattern = "dd/mm/yyyy")
     private Date data;
-
-    private List<ComentarioDTO> comentarios;
 }

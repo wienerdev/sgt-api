@@ -1,8 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {Responsavel} from "../../../../model/responsavel.model";
-import {FormControl, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ResponsavelService} from "../../../../service/responsavel.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DropdownModel} from "../../../../model/dropdown.model";
+import validate = WebAssembly.validate;
 
 
 @Component({
@@ -12,53 +14,50 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ResponsavelDeletarComponent implements OnInit {
 
-  id_resp = ''
 
-  responsavel: Responsavel = {
-    id: '',
-    setor: ''
-  }
-  setor = new FormControl('', [Validators.minLength(10)]);
+  responsaveis : DropdownModel[] = [];
+
+  form : FormGroup;
+
 
   constructor(
     private router: Router,
     private service: ResponsavelService,
-    private route: ActivatedRoute) {
-  }
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) { }
+
 
   ngOnInit(): void {
-    this.id_resp = this.route.snapshot.paramMap.get('id')!
+    this.findAll();
+    this.form = this.buildForm();
+  }
 
-    this.encontrarPorId();
+  findAll(){
+    this.service.findAllDropDown().subscribe((response)=>{
+      alert("Buscou todos.");
+      this.responsaveis = response;
+    }, (error)=>{
+      alert("Erro na requisição.");
+
+    })
+  }
+
+  deletar(): void {
+    console.log(this.form.controls['id'].value)
+   this.service.deletar(this.form.controls['id'].value).subscribe((resposta) => {
+   this.router.navigate([''])
+   this.service.message('Responsavel excluído com sucesso!')
+    })
   }
 
   cancel(): void {
     this.router.navigate(['responsavel'])
   }
 
-  encontrarPorId(): void {
-    this.service.encontrarPorId(this.id_resp).subscribe(resposta => {
-      this.responsavel = resposta;
-    })
-  }
-
-
-  deletar(): void {
-    this.service.deletar(this.responsavel).subscribe((res) => {
-      this.router.navigate([''])
-      this.service.message('Responsavel excluído com sucesso!')
-    }, erro => {
-      if (erro.error.error.match('já excluído')) {
-        this.service.message(erro.error.error)
-      }
-    })
-  }
-
-  errorValidSetor() {
-    if (this.setor.invalid) {
-      return 'O nome deve ter entre 5 e 100 caracteres!';
-    }
-    return false;
+  buildForm(){
+    return this.formBuilder.group({
+      id: [null,[Validators.required]],
+    }, {updateOn: 'change'});
   }
 
 

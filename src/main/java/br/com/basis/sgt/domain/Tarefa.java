@@ -19,7 +19,6 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "tarefa")
-
 public class Tarefa {
 
     @Id

@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ResponsavelDTO {
 
+
+
     private Long id;
     private String setor;
-
-    private List<ResponsavelDTO> responsavel;
 
 }

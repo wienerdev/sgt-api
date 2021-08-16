@@ -1,13 +1,9 @@
 package br.com.basis.sgt;
 
 import br.com.basis.sgt.domain.Comentario;
-import br.com.basis.sgt.domain.Tarefa;
 import br.com.basis.sgt.repository.ComentarioRepository;
-import br.com.basis.sgt.repository.TarefaRepository;
 import br.com.basis.sgt.service.dto.ComentarioDTO;
-import br.com.basis.sgt.service.dto.TarefaDTO;
 import br.com.basis.sgt.service.mapper.ComentarioMapper;
-import br.com.basis.sgt.service.mapper.TarefaMapper;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -29,8 +25,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@Transactional
-public class ComentarioResourceIT {
+
+public class ComentarioResourceIT implements SGTTestConfig{
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(
             MediaType.APPLICATION_JSON.getType(),
@@ -135,8 +131,6 @@ public class ComentarioResourceIT {
 
         comentarioDTO.setDescricao("descr");
 
-
-        comentarioDTO.setComentarios(new ArrayList<>());
         return comentarioDTO;
     }
 

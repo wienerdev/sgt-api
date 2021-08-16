@@ -17,8 +17,8 @@ export class ResponsavelSalvarComponent implements OnInit {
     setor: ''
   }
 
-  id = new FormControl('', [Validators.minLength(5)]);
-  setor = new FormControl('', [Validators.minLength(10)]);
+  id = new FormControl('', [Validators.minLength(1)]);
+  setor = new FormControl('', [Validators.minLength(4)]);
 
   constructor(private router: Router, private service: ResponsavelService) {
   }

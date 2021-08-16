@@ -1,13 +1,9 @@
 package br.com.basis.sgt;
 
 import br.com.basis.sgt.domain.Responsavel;
-import br.com.basis.sgt.domain.Tarefa;
 import br.com.basis.sgt.repository.ResponsavelRepository;
-import br.com.basis.sgt.repository.TarefaRepository;
 import br.com.basis.sgt.service.dto.ResponsavelDTO;
-import br.com.basis.sgt.service.dto.TarefaDTO;
 import br.com.basis.sgt.service.mapper.ResponsavelMapper;
-import br.com.basis.sgt.service.mapper.TarefaMapper;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -28,9 +24,9 @@ import java.util.ArrayList;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
+
 @Transactional
-public class ResponsavelResourceIT {
+public class ResponsavelResourceIT implements SGTTestConfig{
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(
             MediaType.APPLICATION_JSON.getType(),
@@ -133,7 +129,7 @@ public class ResponsavelResourceIT {
         getMockMvc().perform(
                 delete("/api/responsavel/"+ idResponsavel)
                         .contentType(APPLICATION_JSON_UTF8)
-        ).andExpect(status().isOk());
+        ).andExpect(status().isNoContent());
     }
     @Test
     public void obterTodosSemResponsavel() throws Exception {
@@ -173,7 +169,6 @@ public class ResponsavelResourceIT {
         ResponsavelDTO responsavelDTO = new ResponsavelDTO();
         responsavelDTO.setId(1L);
         responsavelDTO.setSetor("descr");
-        responsavelDTO.setResponsavel(new ArrayList<>());
         return responsavelDTO;
     }
 
@@ -183,7 +178,7 @@ public class ResponsavelResourceIT {
         getMockMvc().perform(
                 delete("/api/responsavel/"+ idResponsavel)
                         .contentType(APPLICATION_JSON_UTF8)
-        ).andExpect(status().isOk());
+        ).andExpect(status().isNoContent());
     }
 
 }
