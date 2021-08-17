@@ -32,19 +32,8 @@ import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/re
 import {ResponsavelDeletarComponent} from "./views/components/responsavel-crud/responsavelDeletar/responsavel-deletar.component";
 import {ResponsavelAtualizarComponent} from "./views/components/responsavel-crud/responsavelAtualizar/responsavel-atualizar.component";
 
-import {ComentarioListarComponent} from "./views/components/comentario-crud/comentarioListar/comentario-listar.component";
-import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
-import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
-// @ts-ignore
-import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
-
-import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
-import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
-import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
-import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar/tarefa-salvar.component";
 import {TipoTarefaListarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaListar/tipoTarefa-listar.component";
 import {TipoTarefaSalvarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaSalvar/tipoTarefa-salvar.component";
-// @ts-ignore
 import {TipoTarefaDeletarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaDeletar/tipoTarefa-deletar.component";
 import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaAtualizar/tipoTarefa-atualizar.component";
 
@@ -61,16 +50,16 @@ import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/t
     ResponsavelSalvarComponent,
     ResponsavelAtualizarComponent,
     ResponsavelDeletarComponent,
-
-    ComentarioListarComponent,
-    ComentarioSalvarComponent,
-    ComentarioAtualizarComponent,
-    ComentarioDeletarComponent,
-
-    TarefaListarComponent,
-    TarefaSalvarComponent,
-    TarefaAtualizarComponent,
-    TarefaDeletarComponent,
+    //
+    // ComentarioListarComponent,
+    // ComentarioSalvarComponent,
+    // ComentarioAtualizarComponent,
+    // ComentarioDeletarComponent,
+    //
+    // TarefaListarComponent,
+    // TarefaSalvarComponent,
+    // TarefaAtualizarComponent,
+    // TarefaDeletarComponent,
 
     TipoTarefaListarComponent,
     TipoTarefaSalvarComponent,
