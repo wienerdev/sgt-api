@@ -1,5 +1,5 @@
 export class Tarefa {
-  id: number;
+  id?: any;
   titulo: string;
   descricao: string;
   status: string;

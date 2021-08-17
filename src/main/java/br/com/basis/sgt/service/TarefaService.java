@@ -2,6 +2,7 @@ package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.Tarefa;
 import br.com.basis.sgt.repository.TarefaRepository;
+import br.com.basis.sgt.repository.TipoTarefaRepository;
 import br.com.basis.sgt.service.dto.TarefaDTO;
 import br.com.basis.sgt.service.error.TarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TarefaMapper;
@@ -25,11 +26,11 @@ public class TarefaService {
     }
 
     public List<TarefaDTO> obterTodos(String titulo) {
-        // Caso o título seja passado, realiza o filtro por título
+
         if (titulo != null && !titulo.isEmpty()) {
             return tarefaMapper.toDto(tarefaRepository.encontarTodosPorTitulo(titulo));
         }
-        // Caso não, retorna todos as tarefas no banco
+
         return tarefaMapper.toDto(tarefaRepository.findAll());
     }
 

@@ -1,5 +1,6 @@
 package br.com.basis.sgt.service.dto;
 
+import br.com.basis.sgt.domain.Comentario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,6 @@ public class TarefaDTO {
     private Long id;
     private String titulo;
     private String descricao;
-    private List<TarefaDTO> tarefas;
+    private TipoTarefaDTO tipoTarefa;
+    private List<ComentarioDTO> comentarios;
 }

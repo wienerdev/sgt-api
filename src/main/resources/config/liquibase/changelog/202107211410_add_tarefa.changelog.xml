@@ -16,8 +16,8 @@
     </changeSet>
 
     <changeSet id="202107211410-1" author="caio.nunes">
-        <createTable tableName="tp_tarefa">
-            <column name="id" type="bigint">
+        <createTable tableName="tipo_tarefa">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
             <column name="descricao" type="varchar(20)"/>
@@ -28,7 +28,7 @@
         <addForeignKeyConstraint baseTableName="tarefa"
                                  baseColumnNames="id_tipo"
                                  constraintName="FK_TP_TAREFA_TAREFA"
-                                 referencedTableName="tp_tarefa"
+                                 referencedTableName="tipo_tarefa"
                                  referencedColumnNames="id"/>
     </changeSet>
 
@@ -39,5 +39,6 @@
                                  referencedTableName="responsavel"
                                  referencedColumnNames="id"/>
     </changeSet>
+
 
 </databaseChangeLog>

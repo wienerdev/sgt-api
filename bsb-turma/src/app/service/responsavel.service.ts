@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Responsavel} from "../model/responsavel.model";
 import { environment } from 'src/environments/environment';
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {DropdownModel} from "../model/dropdown.model";
 
 @Injectable({
   providedIn: 'root'
@@ -31,13 +32,18 @@ export class ResponsavelService {
     const url = this.baseUrl + "/api/responsavel";
     return this.http.post<Responsavel>(url, responsavel);
   }
-  update(responsavel: Responsavel): Observable<Responsavel> {
-    const url ='${this.baseUrl}/api/responsavel/${reponsavel.id}';
+  update(responsavel: Responsavel, id : any): Observable<Responsavel> {
+    const url = this.baseUrl + "/api/responsavel/"+ id;
     return this.http.put<Responsavel>(url, responsavel);
   }
+
   deletar(id: any):Observable<void> {
-    const url ='${this.baseUrl}/api/responsavel/${reponsavel.id}';
+    const url =`${this.baseUrl}/api/responsavel/${id}`;
     return this.http.delete<void>(url);
+  }
+
+  findAllDropDown():Observable<DropdownModel[]>{
+    return this.http.get<DropdownModel[]>(`${this.baseUrl}/api/responsavel/select`);
   }
 
 
@@ -48,11 +54,4 @@ export class ResponsavelService {
       duration: 4000
     })
   }
-
-
-
-
-
-
-
 }

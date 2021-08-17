@@ -17,8 +17,8 @@ export class ResponsavelSalvarComponent implements OnInit {
     setor: ''
   }
 
-  id = new FormControl('', [Validators.minLength(5)]);
-  setor = new FormControl('', [Validators.minLength(10)]);
+  id = new FormControl('', [Validators.minLength(1)]);
+  setor = new FormControl('', [Validators.minLength(4)]);
 
   constructor(private router: Router, private service: ResponsavelService) {
   }
@@ -33,7 +33,7 @@ export class ResponsavelSalvarComponent implements OnInit {
 
   salvar(): void {
     this.service.salvar(this.responsavel).subscribe((res) => {
-      this.router.navigate([''])
+      this.router.navigate(['responsavel'])
       this.service.message('Responsavel criado com sucesso!')
     }, erro => {
       if (erro.error.error.match('já cadastrado')) {

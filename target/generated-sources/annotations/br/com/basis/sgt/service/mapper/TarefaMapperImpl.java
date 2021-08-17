@@ -1,19 +1,25 @@
 package br.com.basis.sgt.service.mapper;
 
 import br.com.basis.sgt.domain.Tarefa;
+import br.com.basis.sgt.domain.TipoTarefa;
 import br.com.basis.sgt.service.dto.TarefaDTO;
+import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-08-12T09:58:21-0300",
+    date = "2021-08-17T15:11:00-0300",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_292 (Private Build)"
 )
 @Component
 public class TarefaMapperImpl implements TarefaMapper {
+
+    @Autowired
+    private ComentarioMapper comentarioMapper;
 
     @Override
     public Tarefa toEntity(TarefaDTO dto) {
@@ -25,6 +31,8 @@ public class TarefaMapperImpl implements TarefaMapper {
 
         tarefa.setId( dto.getId() );
         tarefa.setTitulo( dto.getTitulo() );
+        tarefa.setTipoTarefa( tipoTarefaDTOToTipoTarefa( dto.getTipoTarefa() ) );
+        tarefa.setComentarios( comentarioMapper.toEntity( dto.getComentarios() ) );
 
         return tarefa;
     }
@@ -39,6 +47,8 @@ public class TarefaMapperImpl implements TarefaMapper {
 
         tarefaDTO.setId( entity.getId() );
         tarefaDTO.setTitulo( entity.getTitulo() );
+        tarefaDTO.setTipoTarefa( tipoTarefaToTipoTarefaDTO( entity.getTipoTarefa() ) );
+        tarefaDTO.setComentarios( comentarioMapper.toDto( entity.getComentarios() ) );
 
         return tarefaDTO;
     }
@@ -69,5 +79,31 @@ public class TarefaMapperImpl implements TarefaMapper {
         }
 
         return list;
+    }
+
+    protected TipoTarefa tipoTarefaDTOToTipoTarefa(TipoTarefaDTO tipoTarefaDTO) {
+        if ( tipoTarefaDTO == null ) {
+            return null;
+        }
+
+        TipoTarefa tipoTarefa = new TipoTarefa();
+
+        tipoTarefa.setId( tipoTarefaDTO.getId() );
+        tipoTarefa.setDescricao( tipoTarefaDTO.getDescricao() );
+
+        return tipoTarefa;
+    }
+
+    protected TipoTarefaDTO tipoTarefaToTipoTarefaDTO(TipoTarefa tipoTarefa) {
+        if ( tipoTarefa == null ) {
+            return null;
+        }
+
+        TipoTarefaDTO tipoTarefaDTO = new TipoTarefaDTO();
+
+        tipoTarefaDTO.setId( tipoTarefa.getId() );
+        tipoTarefaDTO.setDescricao( tipoTarefa.getDescricao() );
+
+        return tipoTarefaDTO;
     }
 }

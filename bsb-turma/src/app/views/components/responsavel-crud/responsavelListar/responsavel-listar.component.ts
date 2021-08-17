@@ -43,7 +43,7 @@ export class ResponsavelListarComponent implements AfterViewInit {
   }
 
   navigateToDeletar() {
-    this.router.navigate(['responsavel/deletar'])
+    this.router.navigate(['responsavel/delete'])
   }
 
   navigateToUpdate() {

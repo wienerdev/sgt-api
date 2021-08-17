@@ -1,11 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Responsavel} from "../../../../model/responsavel.model";
-import {FormControl, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ResponsavelService} from "../../../../service/responsavel.service";
-import {ActivatedRoute,Router} from "@angular/router";
-
-
-
+import {ActivatedRoute, Router} from "@angular/router";
+import {DropdownModel} from "../../../../model/dropdown.model";
 
 
 @Component({
@@ -15,47 +13,64 @@ import {ActivatedRoute,Router} from "@angular/router";
 })
 export class ResponsavelAtualizarComponent implements OnInit {
 
-  id_resp = ''
 
+  responsaveis: DropdownModel[] = [];
+
+  form: FormGroup;
   responsavel: Responsavel = {
     id: '',
     setor: ''
   }
 
-
-  setor = new FormControl('', [Validators.minLength(10)]);
-
-
+  id = new FormControl(1, [Validators.minLength(1)]);
+  //id: number = 13;
+  setor = new FormControl('', [Validators.minLength(4)]);
 
   constructor(
     private router: Router,
     private service: ResponsavelService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) {
   }
+
 
   ngOnInit(): void {
-    this.id_resp = this.route.snapshot.paramMap.get('id')!
-
-    this.encontrarPorId();
+    this.findAll();
+    this.form = this.buildForm();
   }
 
+  findAll() {
+    this.service.findAllDropDown().subscribe((response) => {
+      alert("Buscou todos.");
+      console.log(response);
+      this.responsaveis = response;
+      console.log(this.responsaveis);
+    }, (error) => {
+      alert("Erro na requisição.");
 
-
-  update(): void {
- this.service.update(this.responsavel).subscribe((resposta)=> {
-   this.router.navigate(['responsavel'])
-   this.service.message('Responsavel atualizado com sucesso!')
- })
-  }
-  encontrarPorId(): void {
-    this.service.encontrarPorId(this.id_resp).subscribe(resposta => {
-      this.responsavel = resposta;
     })
   }
 
-   cancel(): void {
-     this.router.navigate(['responsavel'])
-   }
+  cancel(): void {
+    this.router.navigate(['responsavel'])
+  }
+
+  buildForm() {
+    return this.formBuilder.group({
+      id: [null, [Validators.required]],
+    }, {updateOn: 'change'});
+  }
+
+  update(): void {
+  // console.log(this.id.value);
+
+    console.log(this['id'].value)
+    this.service.update(this.responsavel, this['id'].value).subscribe((resposta) => {
+      this.router.navigate(['responsavel'])
+      this.service.message('Responsavel atualizado com sucesso!')
+    })
+  }
+
 
   errorValidSetor() {
     if (this.setor.invalid) {
@@ -63,4 +78,5 @@ export class ResponsavelAtualizarComponent implements OnInit {
     }
     return false;
   }
+
 }

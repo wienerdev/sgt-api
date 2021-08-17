@@ -10,7 +10,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -19,15 +18,12 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
 @Transactional
-public class TarefaResourceIT {
+public class TarefaResourceIT implements SGTTestConfig {
 
     public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(
             MediaType.APPLICATION_JSON.getType(),
@@ -85,8 +81,9 @@ public class TarefaResourceIT {
     }
 @Test
    private Long salvarTarefa(TarefaDTO tarefaDTO) {
-     Tarefa save = tarefaRepository.save(tarefaMapper.toEntity(tarefaDTO));
-     return save.getId();
+     Tarefa save;
+    save = tarefaRepository.save(tarefaMapper.toEntity(tarefaDTO));
+    return save.getId();
     }
 
     @Test
@@ -123,7 +120,6 @@ public class TarefaResourceIT {
         TarefaDTO tarefaDTO = new TarefaDTO();
         tarefaDTO.setTitulo("Título 1");
         tarefaDTO.setDescricao("descr");
-        tarefaDTO.setTarefas(new ArrayList<>());
         return tarefaDTO;
     }
 

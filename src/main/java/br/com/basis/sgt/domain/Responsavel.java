@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Table(name = "responsavel")
 @Getter
 @Setter
-
 public class Responsavel {
 
     @Id

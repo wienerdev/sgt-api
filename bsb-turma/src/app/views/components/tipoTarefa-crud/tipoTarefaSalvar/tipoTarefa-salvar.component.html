@@ -1,0 +1,18 @@
+<form class="form">
+
+  <h1>NOVA DESCRICÃO TIPO TAREFA</h1>
+
+
+
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Nova Descrição</mat-label>
+    <input [(ngModel)]="tipoTarefa.descricaoTipoTarefa" [formControl]="descricaoTipoTarefa" required descricaoTipoTarefa="descrição" maxlength="100" matInput placeholder="Ex: Desenvolvimento de uma aplicação web">
+    <mat-error *ngIf="descricaoTipoTarefa.invalid">{{ errorValidDescricaoTipoTarefa() }}</mat-error>
+  </mat-form-field>
+
+
+
+
+  <button (click)="salvar()" [disabled]="errorValidDescricaoTipoTarefa() || errorValidDescricaoTipoTarefa()" mat-stroked-button color="accent">Salvar</button>
+  <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+</form>

@@ -20,11 +20,11 @@ public class ComentarioService {
         this.comentarioMapper = comentarioMapper;
     }
     public List<ComentarioDTO> obterTodos(String descricao) {
-        // Caso o título seja passado, realiza o filtro por título
+
         if (descricao != null && !descricao.isEmpty()) {
             return comentarioMapper.toDto(comentarioRepository.encontarTodosPorDescricao(descricao));
         }
-        // Caso não, retorna todos as comentarios no banco
+
         return comentarioMapper.toDto(comentarioRepository.findAll());
     }
     public ComentarioDTO obterPorId(Long id) {
