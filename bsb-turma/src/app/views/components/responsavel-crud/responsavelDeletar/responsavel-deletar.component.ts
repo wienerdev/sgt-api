@@ -45,7 +45,7 @@ export class ResponsavelDeletarComponent implements OnInit {
   deletar(): void {
     console.log(this.form.controls['id'].value)
    this.service.deletar(this.form.controls['id'].value).subscribe((resposta) => {
-   this.router.navigate([''])
+   this.router.navigate(['responsavel'])
    this.service.message('Responsavel excluído com sucesso!')
     })
   }

@@ -37,7 +37,7 @@ public class ResponsavelResource {
         return ResponseEntity.ok(responsavelService.salvar(responsavel));
     }
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ResponsavelDTO> update(@PathVariable Long id, @RequestBody  ResponsavelDTO dto){
+    public ResponseEntity<ResponsavelDTO> update(@PathVariable ("id")Long id, @RequestBody  ResponsavelDTO dto){
         dto.setId(id);
         dto = responsavelService.salvar(dto);
         return ResponseEntity.ok(dto);

@@ -2,11 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {Responsavel} from "../../../../model/responsavel.model";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ResponsavelService} from "../../../../service/responsavel.service";
-import {ActivatedRoute,Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DropdownModel} from "../../../../model/dropdown.model";
-
-
-
 
 
 @Component({
@@ -17,22 +14,24 @@ import {DropdownModel} from "../../../../model/dropdown.model";
 export class ResponsavelAtualizarComponent implements OnInit {
 
 
-  responsaveis : DropdownModel[] = [];
+  responsaveis: DropdownModel[] = [];
 
-  form : FormGroup;
+  form: FormGroup;
   responsavel: Responsavel = {
     id: '',
     setor: ''
   }
 
-  id = new FormControl('', [Validators.minLength(1)]);
+  id = new FormControl(1, [Validators.minLength(1)]);
+  //id: number = 13;
   setor = new FormControl('', [Validators.minLength(4)]);
 
   constructor(
     private router: Router,
     private service: ResponsavelService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+  }
 
 
   ngOnInit(): void {
@@ -40,42 +39,37 @@ export class ResponsavelAtualizarComponent implements OnInit {
     this.form = this.buildForm();
   }
 
-  findAll(){
-    this.service.findAllDropDown().subscribe((response)=>{
+  findAll() {
+    this.service.findAllDropDown().subscribe((response) => {
       alert("Buscou todos.");
+      console.log(response);
       this.responsaveis = response;
-    }, (error)=>{
+      console.log(this.responsaveis);
+    }, (error) => {
       alert("Erro na requisição.");
 
     })
   }
 
-
   cancel(): void {
     this.router.navigate(['responsavel'])
   }
 
-  buildForm(){
+  buildForm() {
     return this.formBuilder.group({
-      id: [null,[Validators.required]],
+      id: [null, [Validators.required]],
     }, {updateOn: 'change'});
   }
 
   update(): void {
-    console.log(this.form.controls['id'].value)
+  // console.log(this.id.value);
 
-    this.service.update(this.form.controls['id'].value)
-    this.service.update(this.responsavel).subscribe((resposta) => {
-    this.router.navigate([''])
-    this.service.message('Responsavel atualizado com sucesso!')
-    }, erro => {
-      if (erro.error.error.match('já cadastrado')) {
-        this.service.message(erro.error.error)
-      }
+    console.log(this['id'].value)
+    this.service.update(this.responsavel, this['id'].value).subscribe((resposta) => {
+      this.router.navigate(['responsavel'])
+      this.service.message('Responsavel atualizado com sucesso!')
     })
   }
-
-
 
 
   errorValidSetor() {
