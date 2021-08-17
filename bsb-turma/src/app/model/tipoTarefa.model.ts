@@ -1,4 +1,4 @@
 export class TipoTarefa {
-  id: number;
+  id?: any;
   descricaoTipoTarefa: string;
 }

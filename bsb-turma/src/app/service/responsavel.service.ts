@@ -47,7 +47,6 @@ export class ResponsavelService {
   }
 
 
-
   message(msg: String): void {
     this.snack.open(`${msg}`, 'OK', {
       horizontalPosition: 'end',
@@ -55,11 +54,4 @@ export class ResponsavelService {
       duration: 4000
     })
   }
-
-
-
-
-
-
-
 }

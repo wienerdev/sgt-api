@@ -1,5 +1,5 @@
 export class Comentario {
-  id: number;
+  id?: any;
   descricao: string;
   dataReferencia: Date;
 }

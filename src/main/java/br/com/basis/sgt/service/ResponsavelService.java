@@ -23,11 +23,11 @@ public class ResponsavelService {
     }
 
     public List<ResponsavelDTO> obterTodos(String setor) {
-        // Caso o título seja passado, realiza o filtro por título
+
         if (setor != null && !setor.isEmpty()) {
             return responsavelMapper.toDto(responsavelRepository.encontarTodosPorSetor(setor));
         }
-        // Caso não, retorna todos as responsavels no banco
+
         return responsavelMapper.toDto(responsavelRepository.findAll());
     }
 

@@ -33,6 +33,13 @@ public class TipoTarefaResource {
         return ResponseEntity.ok(tipoTarefaService.salvar(tipoTarefa));
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<TipoTarefaDTO> update(@PathVariable ("id")Long id, @RequestBody TipoTarefaDTO dto){
+        dto.setId(id);
+        dto = tipoTarefaService.salvar(dto);
+        return ResponseEntity.ok(dto);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<TipoTarefaDTO> obterPorId(@PathVariable("id") Long id) {
         return new ResponseEntity<>(tipoTarefaService.obterPorId(id), HttpStatus.OK);

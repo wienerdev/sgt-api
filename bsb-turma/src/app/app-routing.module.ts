@@ -1,11 +1,30 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './views/components/template/home/home.component';
 
-import { ResponsavelListarComponent } from './views/components/responsavel-crud/responsavelListar/responsavel-listar.component';
-import { HomeComponent } from './views/components/template/home/home.component';
-import { ResponsavelSalvarComponent} from "./views/components/responsavel-crud/responsavelSalvar/responsavel-salvar.component";
+
+import {ResponsavelListarComponent} from './views/components/responsavel-crud/responsavelListar/responsavel-listar.component';
+import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/responsavelSalvar/responsavel-salvar.component";
 import {ResponsavelDeletarComponent} from "./views/components/responsavel-crud/responsavelDeletar/responsavel-deletar.component";
 import {ResponsavelAtualizarComponent} from "./views/components/responsavel-crud/responsavelAtualizar/responsavel-atualizar.component";
+
+import {TipoTarefaListarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaListar/tipoTarefa-listar.component";
+import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaAtualizar/tipoTarefa-atualizar.component";
+import {TipoTarefaSalvarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaSalvar/tipoTarefa-salvar.component";
+// @ts-ignore
+import {TipoTarefaDeletarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaDeletar/tipoTarefa-deletar.component";
+
+import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
+import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
+import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
+import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar/tarefa-salvar.component";
+import {Comentario} from "./model/comentario.model";
+import {ComentarioListarComponent} from "./views/components/comentario-crud/comentarioListar/comentario-listar.component";
+// @ts-ignore
+import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
+import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
+import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
+
 
 const routes: Routes = [
   {
@@ -36,6 +55,89 @@ const routes: Routes = [
   {
     path:'responsavel/update',
     component: ResponsavelAtualizarComponent
+  }
+
+
+
+  ,
+  {
+    path:'tipotarefas',
+    component: TipoTarefaListarComponent
+  },
+  {
+    path:'tipotarefas/salvar',
+    component: TipoTarefaSalvarComponent
+  },
+  {
+    path: 'tipotarefas/delete',
+    component: TipoTarefaDeletarComponent
+  },
+
+  {
+    path: 'tipotarefas/delete/:id',
+    component: TipoTarefaDeletarComponent
+  },
+  {
+    path:'tipotarefas/update/:id',
+    component: TipoTarefaAtualizarComponent
+  },
+  {
+    path:'tipotarefas/update',
+    component: TipoTarefaAtualizarComponent
+  }
+
+  ,
+  {
+    path:'tarefa',
+    component: TarefaListarComponent
+  },
+  {
+    path:'tarefa/salvar',
+    component: TarefaSalvarComponent
+  },
+  {
+    path: 'tarefa/delete',
+    component: TarefaDeletarComponent
+  },
+
+  {
+    path: 'tarefa/delete/:id',
+    component: TarefaDeletarComponent
+  },
+  {
+    path:'tarefa/update/:id',
+    component: TarefaAtualizarComponent
+  },
+  {
+    path:'tarefa/update',
+    component: TarefaAtualizarComponent
+  }
+
+  ,
+  {
+    path:'comentario',
+    component: ComentarioListarComponent
+  },
+  {
+    path:'comentario/salvar',
+    component: ComentarioSalvarComponent
+  },
+  {
+    path: 'comentario/delete',
+    component: ComentarioDeletarComponent
+  },
+
+  {
+    path: 'comentario/delete/:id',
+    component: ComentarioDeletarComponent
+  },
+  {
+    path:'comentario/update/:id',
+    component: ComentarioAtualizarComponent
+  },
+  {
+    path:'comentario/update',
+    component: ComentarioAtualizarComponent
   }
 
 

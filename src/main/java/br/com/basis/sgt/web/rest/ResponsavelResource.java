@@ -12,21 +12,15 @@ import java.util.List;
 @CrossOrigin()
 @RestController
 @RequestMapping("/api/responsavel")
+    public class ResponsavelResource {
 
+        private final ResponsavelService responsavelService;
 
-public class ResponsavelResource {
-    private final ResponsavelService responsavelService;
+        public ResponsavelResource(ResponsavelService responsavelService) {
 
-    public ResponsavelResource(ResponsavelService responsavelService) {
         this.responsavelService = responsavelService;
     }
 
-    /**
-     * Busca todos os setores através
-     *
-     * @param setor
-     * @return
-     */
     @GetMapping
     public ResponseEntity<List<ResponsavelDTO>> obterTodos(@RequestParam(value = "setor", required = false) String setor) {
         return new ResponseEntity<>(responsavelService.obterTodos(setor), HttpStatus.OK);
@@ -36,6 +30,7 @@ public class ResponsavelResource {
     public ResponseEntity<ResponsavelDTO> criarResponsavel(@RequestBody ResponsavelDTO responsavel) {
         return ResponseEntity.ok(responsavelService.salvar(responsavel));
     }
+
     @PutMapping(value = "/{id}")
     public ResponseEntity<ResponsavelDTO> update(@PathVariable ("id")Long id, @RequestBody  ResponsavelDTO dto){
         dto.setId(id);
@@ -54,6 +49,7 @@ public class ResponsavelResource {
         return ResponseEntity.noContent().build();
 
     }
+
     @GetMapping("/select")
     public  ResponseEntity<List<DropDownDTO>> findAllSelect(){
         List<DropDownDTO> dropResponsavel = responsavelService.findAllSelect();

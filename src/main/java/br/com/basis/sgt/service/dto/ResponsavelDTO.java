@@ -11,11 +11,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-
 public class ResponsavelDTO {
-
-
 
     private Long id;
     private String setor;
