@@ -2,6 +2,7 @@ package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.TipoTarefa;
 import br.com.basis.sgt.repository.TipoTarefaRepository;
+import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import br.com.basis.sgt.service.error.TipoTarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TipoTarefaMapper;
@@ -47,6 +48,10 @@ public class TipoTarefaService {
         tipoTarefaRepository.deleteById(id);
     }
 
+    public List<DropDownDTO> findAllSelect() {
 
+        return tipoTarefaRepository.getAllTipoTarefaDropDown();
+
+    }
 
 }

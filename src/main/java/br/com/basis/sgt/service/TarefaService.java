@@ -2,11 +2,10 @@ package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.Tarefa;
 import br.com.basis.sgt.repository.TarefaRepository;
-import br.com.basis.sgt.repository.TipoTarefaRepository;
+import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TarefaDTO;
 import br.com.basis.sgt.service.error.TarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TarefaMapper;
-
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -49,6 +48,10 @@ public class TarefaService {
         tarefaRepository.deleteById(id);
     }
 
+    public List<DropDownDTO> findAllSelect() {
 
+        return tarefaRepository.getAllTarefaDropDown();
+
+    }
 
 }

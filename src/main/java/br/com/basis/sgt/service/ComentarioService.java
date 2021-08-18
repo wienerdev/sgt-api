@@ -3,6 +3,7 @@ package br.com.basis.sgt.service;
 import br.com.basis.sgt.domain.Comentario;
 import br.com.basis.sgt.repository.ComentarioRepository;
 import br.com.basis.sgt.service.dto.ComentarioDTO;
+import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.error.ComentarioNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.ComentarioMapper;
 import org.springframework.stereotype.Service;
@@ -40,4 +41,12 @@ public class ComentarioService {
     public void deletarPorId(Long id) {
         comentarioRepository.deleteById(id);
     }
+
+    public List<DropDownDTO> findAllSelect() {
+
+        return comentarioRepository.getAllComentarioDropDown();
+
+    }
+
+
 }

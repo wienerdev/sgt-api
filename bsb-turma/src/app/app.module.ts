@@ -22,31 +22,29 @@ import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatButtonModule} from "@angular/material/button";
+
 import {HeaderComponent} from "./views/components/template/header/header.component";
+
 import {FooterComponent} from "./views/components/template/footer/footer.component";
+
 import {HomeComponent} from "./views/components/template/home/home.component";
 
 import {NavComponent} from "./views/components/template/nav/nav.component";
+
 import {ResponsavelListarComponent} from "./views/components/responsavel-crud/responsavelListar/responsavel-listar.component";
 import {ResponsavelSalvarComponent} from "./views/components/responsavel-crud/responsavelSalvar/responsavel-salvar.component";
 import {ResponsavelDeletarComponent} from "./views/components/responsavel-crud/responsavelDeletar/responsavel-deletar.component";
 import {ResponsavelAtualizarComponent} from "./views/components/responsavel-crud/responsavelAtualizar/responsavel-atualizar.component";
 
-import {ComentarioListarComponent} from "./views/components/comentario-crud/comentarioListar/comentario-listar.component";
-import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
-import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
-// @ts-ignore
-import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
-
-import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
-import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
-import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
-import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar/tarefa-salvar.component";
 import {TipoTarefaListarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaListar/tipoTarefa-listar.component";
 import {TipoTarefaSalvarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaSalvar/tipoTarefa-salvar.component";
-// @ts-ignore
 import {TipoTarefaDeletarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaDeletar/tipoTarefa-deletar.component";
-import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaAtualizar/tipoTarefa-atualizar.component";
+import {ComentarioListarComponent} from "./views/components/comentario-crud/comentarioListar/comentario-listar.component";
+
+import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
+import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
+import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
+import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaAtualizar/tipoTarefa-atualizar.component"
 
 
 @NgModule({
@@ -66,11 +64,11 @@ import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/t
     ComentarioSalvarComponent,
     ComentarioAtualizarComponent,
     ComentarioDeletarComponent,
-
-    TarefaListarComponent,
-    TarefaSalvarComponent,
-    TarefaAtualizarComponent,
-    TarefaDeletarComponent,
+    //
+    // TarefaListarComponent,
+    // TarefaSalvarComponent,
+    // TarefaAtualizarComponent,
+    // TarefaDeletarComponent,
 
     TipoTarefaListarComponent,
     TipoTarefaSalvarComponent,

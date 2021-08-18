@@ -1,16 +1,29 @@
+<form class="form mat-elevation-z8">
 
-<p>{{descricaoForm}}</p>
->
-<span class="p-float-label">
-    <input id="float-input" type="text" [(ngModel)]="comentario.descricao" pInputText>
-    <label for="float-input">Descrição</label>
-</span>
-<br>
-<span class="p-float-label">
-    <input  type="text" [(ngModel)]="comentario.dataReferencia" pInputText>
-    <label for="float-input">Data</label>
-</span>
-<br>
-<button pButton type="button" label="Salvar" (click)="click() "></button>
-<br>
+  <h1>ATUALIZAR COMENTARIO</h1>
 
+  <mat-form-field appearance="fill" class="field" >
+    <mat-label>Selecione o comentario que deseja atualizar </mat-label>
+
+    <mat-select selected="setor" [formControl]="id">
+      <mat-option *ngFor="let descricao of comentarios" [value]="descricao.values">
+        {{descricao.values}} - {{descricao.label}}
+
+      </mat-option>
+
+    </mat-select>
+
+  </mat-form-field>
+</form>
+<form [formGroup]="form" class="form">
+  <form  class = "example-form" >
+    <mat-form-field  class = "example-full-width"  appear = "fill" >
+      <mat-label > Atualização </mat-label >
+      <input [(ngModel)]="comentario.descricao" [formControl]="descricao" required name="" matInput maxlength="100" placeholder="Ex. Prazo de entrega adiantado">
+    </mat-form-field >
+
+
+    <button (click)="update()" [disabled]="errorValidDescricao()" mat-stroked-button color="accent">ATUALIZAR</button>
+    <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+  </form>
+</form>
