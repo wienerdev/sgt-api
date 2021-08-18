@@ -18,6 +18,11 @@ import {ComentarioListarComponent} from "./views/components/comentario-crud/come
 import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
 import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
 
+import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar/tarefa-salvar.component";
+import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
+import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
+import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
+
 
 const routes: Routes = [
   {
@@ -80,33 +85,32 @@ const routes: Routes = [
   }
 
   ,
-  // {
-  //   path:'tarefa',
-  //   component: TarefaListarComponent
-  // },
-  // // {
-  //   path:'tarefa/salvar',
-  //   component: TarefaSalvarComponent
-  // },
-  // {
-  //   path: 'tarefa/delete',
-  //   component: TarefaDeletarComponent
-  // },
-  //
-  // {
-  //   path: 'tarefa/delete/:id',
-  //   component: TarefaDeletarComponent
-  // },
-  // {
-  //   path:'tarefa/update/:id',
-  //   component: TarefaAtualizarComponent
-  // },
-  // {
-  //   path:'tarefa/update',
-  //   component: TarefaAtualizarComponent
-  // }
-  //
-  // ,
+   {
+     path:'tarefas',
+     component: TarefaListarComponent
+   },
+   {
+     path:'tarefas/salvar',
+     component: TarefaSalvarComponent
+   },
+   {
+     path: 'tarefas/delete',
+     component: TarefaDeletarComponent
+   },
+
+  {
+     path: 'tarefas/delete/:id',
+     component: TarefaDeletarComponent
+   },
+   {
+     path:'tarefas/update/:id',
+     component: TarefaAtualizarComponent
+   },
+   {
+     path:'tarefa/update',
+     component: TarefaAtualizarComponent
+   }
+   ,
    {
      path:'comentario',
      component: ComentarioListarComponent

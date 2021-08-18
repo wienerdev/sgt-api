@@ -1,0 +1,27 @@
+<form class="form">
+
+  <h1>NOVA TAREFA</h1>
+
+
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Titulo da Tarefa</mat-label>
+    <input [(ngModel)]="tarefa.titulo" [formControl]="titulo" required titulo="titulo" maxlength="100" matInput placeholder="Ex: Levantamento de Requisitos">
+    <mat-error *ngIf="titulo.invalid">{{ errorValidTitulo() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="field">
+    <input [(ngModel)]="tarefa.descricao" [formControl]="titulo" required descricao="descricao" maxlength="100" matInput placeholder="Ex: Levantas os requisitos para implementar um CRuD das Tarefas">
+    <mat-error *ngIf="descricao.invalid">{{ errorValidDescricao() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="field">
+    <input [(ngModel)]="tarefa.status" [formControl]="status" required status="status" maxlength="100" matInput placeholder="Ex: Pendente">
+    <mat-error *ngIf="status.invalid">{{ errorValidStatus()}}</mat-error>
+  </mat-form-field>
+
+
+
+
+  <button (click)="salvar()" [disabled]="errorValidTitulo() || errorValidDescricao() || errorValidStatus()" mat-stroked-button color="accent">Salvar</button>
+  <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+</form>

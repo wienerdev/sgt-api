@@ -29,6 +29,12 @@ public class Tarefa {
     @Column(name = "titulo")
     private String titulo;
 
+    @Column(name = "descricacao")
+    private String descricacao;
+
+    @Column(name = "status")
+    private String status;
+
     @JoinColumn(name = "id_tipo")
     @ManyToOne
     private TipoTarefa tipoTarefa;

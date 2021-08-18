@@ -46,6 +46,11 @@ import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/c
 import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
 import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaAtualizar/tipoTarefa-atualizar.component"
 
+import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar/tarefa-salvar.component";
+import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
+import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
+import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
+
 
 @NgModule({
   declarations: [
@@ -64,11 +69,11 @@ import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/t
     ComentarioSalvarComponent,
     ComentarioAtualizarComponent,
     ComentarioDeletarComponent,
-    //
-    // TarefaListarComponent,
-    // TarefaSalvarComponent,
-    // TarefaAtualizarComponent,
-    // TarefaDeletarComponent,
+
+    TarefaListarComponent,
+     TarefaSalvarComponent,
+    TarefaAtualizarComponent,
+    TarefaDeletarComponent,
 
     TipoTarefaListarComponent,
     TipoTarefaSalvarComponent,

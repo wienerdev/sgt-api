@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-08-17T15:11:00-0300",
+    date = "2021-08-18T14:27:36-0300",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_292 (Private Build)"
 )
 @Component
@@ -31,6 +31,7 @@ public class TarefaMapperImpl implements TarefaMapper {
 
         tarefa.setId( dto.getId() );
         tarefa.setTitulo( dto.getTitulo() );
+        tarefa.setStatus( dto.getStatus() );
         tarefa.setTipoTarefa( tipoTarefaDTOToTipoTarefa( dto.getTipoTarefa() ) );
         tarefa.setComentarios( comentarioMapper.toEntity( dto.getComentarios() ) );
 
@@ -47,6 +48,7 @@ public class TarefaMapperImpl implements TarefaMapper {
 
         tarefaDTO.setId( entity.getId() );
         tarefaDTO.setTitulo( entity.getTitulo() );
+        tarefaDTO.setStatus( entity.getStatus() );
         tarefaDTO.setTipoTarefa( tipoTarefaToTipoTarefaDTO( entity.getTipoTarefa() ) );
         tarefaDTO.setComentarios( comentarioMapper.toDto( entity.getComentarios() ) );
 
