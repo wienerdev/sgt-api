@@ -1,6 +1,7 @@
 package br.com.basis.sgt.web.rest;
 
 import br.com.basis.sgt.service.TarefaService;
+import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TarefaDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,6 +47,11 @@ import java.util.List;
     public ResponseEntity<Void> deletarPorId(@PathVariable("id") Long id) {
         tarefaService.deletarPorId(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("/select")
+    public  ResponseEntity<List<DropDownDTO>> findAllSelect(){
+        List<DropDownDTO> dropResponsavel = tarefaService.findAllSelect();
+        return new ResponseEntity<>(dropResponsavel,HttpStatus.OK);
     }
 
 }

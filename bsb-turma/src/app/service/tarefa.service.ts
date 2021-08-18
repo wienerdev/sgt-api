@@ -5,6 +5,7 @@ import {environment} from "../../environments/environment";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {DropdownModel} from "../model/dropdown.model";
 import {TipoTarefa} from "../model/tipoTarefa.model";
+import {Tarefa} from "../model/tarefa.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,33 +20,33 @@ export class TarefaService {
 
 
   encontrarPorId(id: any): Observable<TipoTarefa> {
-    const url = '${this.baseUrl}/api/tipoTarefa/${id}';
-    return this.http.get<TipoTarefa>(url);
+    const url = '${this.baseUrl}/api/tarefas/${id}';
+    return this.http.get<Tarefa>(url);
   }
 
 
-  listar(): Observable<TipoTarefa[]> {
-    const url = this.baseUrl + "/api/tipoTarefa";
-    return this.http.get<TipoTarefa[]>(url);
+  listar(): Observable<Tarefa[]> {
+    const url = this.baseUrl + "/api/tarefas";
+    return this.http.get<Tarefa[]>(url);
   }
 
-  salvar(tipoTarefa: TipoTarefa): Observable<TipoTarefa> {
-    const url = this.baseUrl + "/api/tipoTarefa";
-    return this.http.post<TipoTarefa>(url, tipoTarefa);
+  salvar(tarefa: Tarefa): Observable<Tarefa> {
+    const url = this.baseUrl + "/api/tarefas";
+    return this.http.post<Tarefa>(url, tarefa);
   }
 
-  update(tipoTarefa: TipoTarefa, id: any): Observable<TipoTarefa> {
-    const url = this.baseUrl + "/api/tipoTarefa/" + id;
-    return this.http.put<TipoTarefa>(url, tipoTarefa);
+  update(tarefa: Tarefa, id: any): Observable<Tarefa> {
+    const url = this.baseUrl + "/api/tarefas/" + id;
+    return this.http.put<Tarefa>(url, tarefa);
   }
 
   deletar(id: any): Observable<void> {
-    const url = `${this.baseUrl}/api/tipoTarefa/${id}`;
+    const url = `${this.baseUrl}/api/tarefas/${id}`;
     return this.http.delete<void>(url);
   }
 
   findAllDropDown(): Observable<DropdownModel[]> {
-    return this.http.get<DropdownModel[]>(`${this.baseUrl}/api/tipoTarefa/select`);
+    return this.http.get<DropdownModel[]>(`${this.baseUrl}/api/tarefas/select`);
   }
 
   message(msg: String): void {

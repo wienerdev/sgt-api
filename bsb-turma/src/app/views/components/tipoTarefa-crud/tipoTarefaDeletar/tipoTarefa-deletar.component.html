@@ -1,12 +1,23 @@
+<form [formGroup]="form" class="form">
 
-<p>{{descricaoTipoTarefaForm}}</p>
->
-<span class="p-float-label">
-    <input id="float-input" type="text" [(ngModel)]="tipoTarefa.descricaoTipoTarefa" pInputText>
-    <label for="float-input">Setor</label>
-</span>
-<br>
+  <h1>EXCLUIR TIPO DE TAREFA</h1>
 
-<button pButton type="button" label="Salvar" (click)="click() "></button>
-<br>
 
+
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Digite o ID para excluir o tipo de tarefa desejado</mat-label>
+
+    <mat-select selected="setor" formControlName="id">
+      <mat-option *ngFor="let descricao of tipoTarefas" [value]="descricao.values">
+        {{descricao.label}}
+      </mat-option>
+
+    </mat-select>
+
+
+  </mat-form-field>
+
+
+  <button class="mat-elevation-z8" (click)="deletar()"mat-stroked-button color="accent">EXCLUIR</button>
+  <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
+</form>

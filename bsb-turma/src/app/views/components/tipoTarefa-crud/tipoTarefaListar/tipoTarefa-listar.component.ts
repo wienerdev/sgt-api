@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ViewChild} from "@angular/core";
-import {TipoTarefa} from '../../../../model/tipoTarefa.model';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import {TipoTarefa} from "../../../../model/tipoTarefa.model";
 import {TipoTarefaService} from "../../../../service/tipoTarefa.service";
-import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
 import {Router} from "@angular/router";
 
 
@@ -15,10 +15,10 @@ import {Router} from "@angular/router";
 
 export class TipoTarefaListarComponent implements AfterViewInit {
 
-  tipoTarefa: TipoTarefa[] = [];
+  tipoTarefa: TipoTarefa [] = [];
 
 
-  displayedColumns: string[] = ['id', 'descricaoTipoTarefa'];
+  displayedColumns: string[] = ['id', 'descricao'];
   dataSource = new MatTableDataSource<TipoTarefa>(this.tipoTarefa);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -29,7 +29,6 @@ export class TipoTarefaListarComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.listar();
   }
-
 
   listar(): void {
     this.service.listar().subscribe((resposta) => {
@@ -53,5 +52,6 @@ export class TipoTarefaListarComponent implements AfterViewInit {
   }
 
 }
+
 
 

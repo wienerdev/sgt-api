@@ -13,6 +13,10 @@ import {TipoTarefaAtualizarComponent} from "./views/components/tipoTarefa-crud/t
 import {TipoTarefaSalvarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaSalvar/tipoTarefa-salvar.component";
 import {TipoTarefaDeletarComponent} from "./views/components/tipoTarefa-crud/tipoTarefaDeletar/tipoTarefa-deletar.component";
 
+import {ComentarioSalvarComponent} from "./views/components/comentario-crud/comentarioSalvar/comentario-salvar.component";
+import {ComentarioListarComponent} from "./views/components/comentario-crud/comentarioListar/comentario-listar.component";
+import {ComentarioAtualizarComponent} from "./views/components/comentario-crud/comentarioAtualizar/comentario-atualizar.component";
+import {ComentarioDeletarComponent} from "./views/components/comentario-crud/comentarioDeletar/comentario-deletar.component";
 
 
 const routes: Routes = [
@@ -103,31 +107,31 @@ const routes: Routes = [
   // }
   //
   // ,
-  // {
-  //   path:'comentario',
-  //   component: ComentarioListarComponent
-  // },
-  // {
-  //   path:'comentario/salvar',
-  //   component: ComentarioSalvarComponent
-  // },
-  // {
-  //   path: 'comentario/delete',
-  //   component: ComentarioDeletarComponent
-  // },
-  //
-  // {
-  //   path: 'comentario/delete/:id',
-  //   component: ComentarioDeletarComponent
-  // },
-  // {
-  //   path:'comentario/update/:id',
-  //   component: ComentarioAtualizarComponent
-  // },
-  // {
-  //   path:'comentario/update',
-  //   component: ComentarioAtualizarComponent
-  // }
+   {
+     path:'comentario',
+     component: ComentarioListarComponent
+   },
+   {
+     path:'comentario/salvar',
+     component: ComentarioSalvarComponent
+   },
+    {
+    path: 'comentario/delete',
+     component: ComentarioDeletarComponent
+   },
+
+   {
+     path: 'comentario/delete/:id',
+     component: ComentarioDeletarComponent
+   },
+   {
+     path:'comentario/update/:id',
+     component: ComentarioAtualizarComponent
+   },
+   {
+     path:'comentario/update',
+     component: ComentarioAtualizarComponent
+   }
 
 
 ];

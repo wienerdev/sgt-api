@@ -2,6 +2,7 @@ package br.com.basis.sgt.web.rest;
 
 import br.com.basis.sgt.service.ComentarioService;
 import br.com.basis.sgt.service.dto.ComentarioDTO;
+import br.com.basis.sgt.service.dto.DropDownDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +47,11 @@ import java.util.List;
             comentarioService.deletarPorId(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
+    @GetMapping("/select")
+    public  ResponseEntity<List<DropDownDTO>> findAllSelect(){
+        List<DropDownDTO> dropResponsavel = comentarioService.findAllSelect();
+        return new ResponseEntity<>(dropResponsavel,HttpStatus.OK);
+    }
     }
 
 
