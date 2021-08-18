@@ -21,10 +21,7 @@ import java.util.List;
             this.tarefaService = tarefaService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<TarefaDTO>> obterTodos(@RequestParam(value = "titulo", required = false) String titulo) {
-        return new ResponseEntity<>(tarefaService.obterTodos(titulo), HttpStatus.OK);
-    }
+
 
     @PostMapping
     public ResponseEntity<TarefaDTO> criarTarefa(@RequestBody TarefaDTO tarefa) {

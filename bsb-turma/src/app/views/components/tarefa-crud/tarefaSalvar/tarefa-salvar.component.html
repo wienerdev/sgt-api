@@ -10,11 +10,13 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
+    <mat-label>Descricão da Tarefa</mat-label>
     <input [(ngModel)]="tarefa.descricao" [formControl]="titulo" required descricao="descricao" maxlength="100" matInput placeholder="Ex: Levantas os requisitos para implementar um CRuD das Tarefas">
     <mat-error *ngIf="descricao.invalid">{{ errorValidDescricao() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
+    <mat-label>Status da Tarefa</mat-label>
     <input [(ngModel)]="tarefa.status" [formControl]="status" required status="status" maxlength="100" matInput placeholder="Ex: Pendente">
     <mat-error *ngIf="status.invalid">{{ errorValidStatus()}}</mat-error>
   </mat-form-field>
