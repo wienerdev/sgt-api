@@ -11,7 +11,7 @@
 
   <mat-form-field appearance="fill" class="field">
     <mat-label>Descricão da Tarefa</mat-label>
-    <input [(ngModel)]="tarefa.descricao" [formControl]="titulo" required descricao="descricao" maxlength="100" matInput placeholder="Ex: Levantas os requisitos para implementar um CRuD das Tarefas">
+    <input [(ngModel)]="tarefa.descricao" [formControl]="descricao" required descricao="descricao" maxlength="100" matInput placeholder="Ex: Levantas os requisitos para implementar um CRuD das Tarefas">
     <mat-error *ngIf="descricao.invalid">{{ errorValidDescricao() }}</mat-error>
   </mat-form-field>
 
@@ -21,7 +21,18 @@
     <mat-error *ngIf="status.invalid">{{ errorValidStatus()}}</mat-error>
   </mat-form-field>
 
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Selecione o Tipo de Tarefa</mat-label>
 
+    <mat-select [(ngModel)]="tarefa.tipoTarefa.id" [formControl]="tipoTarefa"  >
+      <mat-option *ngFor="let tt of tiposTarefa" [value]="tt.values">
+        {{tt.label}}
+      </mat-option>
+
+    </mat-select>
+
+
+  </mat-form-field>
 
 
   <button (click)="salvar()" [disabled]="errorValidTitulo() || errorValidDescricao() || errorValidStatus()" mat-stroked-button color="accent">Salvar</button>

@@ -21,7 +21,16 @@ export class TarefaAtualizarComponent implements OnInit {
     id: '',
     descricao: '',
     status:'',
-    titulo:''
+    titulo: '',
+    tipoTarefa :  {
+      id:'',
+      descricao:''
+
+    } ,
+    responsavel: {
+      id:'',
+      setor:''
+    }
   }
 
   id = new FormControl(1, [Validators.minLength(1)]);
