@@ -16,12 +16,12 @@ export class ComentarioSalvarComponent implements OnInit {
 
   comentario: Comentario = {
     id: '',
-    dataReferencia: '',
+    data: '',
     descricao: ''
   }
 
   id = new FormControl('', [Validators.minLength(1)]);
-  dataReferencia = new FormControl('', [Validators.minLength(4)]);
+  data = new FormControl('', [Validators.minLength(4)]);
   descricao = new FormControl('', [Validators.minLength(4)]);
   constructor(private router: Router, private service: ComentarioService) {
   }
@@ -45,8 +45,8 @@ export class ComentarioSalvarComponent implements OnInit {
     })
   }
 
-  errorValidDataReferencia() {
-    if (this.dataReferencia.invalid) {
+  errorValidData() {
+    if (this.data.invalid) {
       return 'O nome deve ter entre 5 e 100 caracteres!';
     }
     return false;

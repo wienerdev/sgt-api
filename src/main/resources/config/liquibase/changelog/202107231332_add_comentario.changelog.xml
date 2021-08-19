@@ -8,7 +8,7 @@
             </column>
 
             <column name="descricao" type="varchar(200)"/>
-            <column name="data" type="date"/>
+            <column name="data" type="timestamp"/>
             <column name="id_tarefa" type="bigint"/>
         </createTable>
     </changeSet>

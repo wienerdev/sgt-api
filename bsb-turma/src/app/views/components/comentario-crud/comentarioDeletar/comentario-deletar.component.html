@@ -8,8 +8,8 @@
     <mat-label>Digite o ID para excluir o setor desejado</mat-label>
 
     <mat-select selected="setor" formControlName="id">
-      <mat-option *ngFor="let dataReferencia of comentarios" [value]="dataReferencia.values">
-        {{dataReferencia.label}}
+      <mat-option *ngFor="let data of comentarios" [value]="data.values">
+        {{data.label}}
       </mat-option>
 
     </mat-select>

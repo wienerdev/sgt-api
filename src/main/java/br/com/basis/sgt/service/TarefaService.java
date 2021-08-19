@@ -24,7 +24,7 @@ public class TarefaService {
         this.tarefaMapper = tarefaMapper;
     }
 
-    public List<TarefaDTO> findAllbyTitulo(String titulo) {
+    public List<TarefaDTO> obterTodos(String titulo) {
 
         if (titulo != null && !titulo.isEmpty()) {
             return tarefaMapper.toDto(tarefaRepository.encontarTodosPorTitulo(titulo));
