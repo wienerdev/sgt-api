@@ -15,7 +15,9 @@ public class TarefaDTO {
 
     private Long id;
     private String titulo;
+    private String status;
     private String descricao;
     private TipoTarefaDTO tipoTarefa;
+    private ResponsavelDTO responsavel;
     private List<ComentarioDTO> comentarios;
 }

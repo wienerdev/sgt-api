@@ -21,7 +21,7 @@ export class ComentarioAtualizarComponent implements OnInit {
   comentario: Comentario = {
     descricao: "",
     id: '',
-    dataReferencia: ''
+    data: ''
   }
 
   id = new FormControl(1, [Validators.minLength(1)]);

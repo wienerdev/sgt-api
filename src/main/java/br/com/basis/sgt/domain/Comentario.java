@@ -6,7 +6,9 @@ import lombok.Setter;
 import org.springframework.data.jpa.repository.Temporal;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -24,9 +26,8 @@ public class Comentario {
     @Column(name = "descricao")
     private String descricao;
 
-
-    @JsonFormat(pattern = "dd/mm/yyyy")
-    @Column(name = "data")
-    private Date data;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private LocalDateTime data;
 
 }

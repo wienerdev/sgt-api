@@ -6,8 +6,8 @@
 
   <mat-form-field appearance="fill" class="field">
     <mat-label>Data de Referência</mat-label>
-    <input [(ngModel)]="comentario.dataReferencia" [formControl]="dataReferencia" required dataReferencia="dataReferencia" maxlength="400" matInput placeholder="Ex: 22/07 ou 22/07/2021 ">
-    <mat-error *ngIf="dataReferencia.invalid">{{ errorValidDataReferencia() }}</mat-error>
+    <input [(ngModel)]="comentario.data" [formControl]="data" required data="data" maxlength="400" matInput placeholder="Ex: 22/07 ou 22/07/2021 ">
+    <mat-error *ngIf="data.invalid">{{ errorValidData() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
@@ -17,6 +17,6 @@
   </mat-form-field>
 
 
-  <button (click)="salvar()" [disabled]="errorValidDataReferencia() || errorValidDescricao()" mat-stroked-button color="accent">Salvar</button>
+  <button (click)="salvar()" [disabled]="errorValidData() || errorValidDescricao()" mat-stroked-button color="accent">Salvar</button>
   <button (click)="cancel()" mat-stroked-button color="warn">CANCELAR</button>
 </form>

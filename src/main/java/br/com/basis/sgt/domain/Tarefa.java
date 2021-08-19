@@ -3,16 +3,7 @@ package br.com.basis.sgt.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -29,9 +20,19 @@ public class Tarefa {
     @Column(name = "titulo")
     private String titulo;
 
+    @Column(name = "descricao")
+    private String descricao;
+
+    @Column(name = "status")
+    private String status;
+
     @JoinColumn(name = "id_tipo")
     @ManyToOne
     private TipoTarefa tipoTarefa;
+
+    @JoinColumn(name = "id_responsavel")
+    @ManyToOne
+    private Responsavel responsavel;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_tarefa")
