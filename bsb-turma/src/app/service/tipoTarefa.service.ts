@@ -42,7 +42,9 @@ export class TipoTarefaService {
 
   findAllDropDown():Observable<DropdownModel[]>{
     return this.http.get<DropdownModel[]>(`${this.baseUrl}/api/tipotarefas/select`);
+
   }
+
 
   message(msg: String): void {
     this.snack.open(`${msg}`, 'OK', {

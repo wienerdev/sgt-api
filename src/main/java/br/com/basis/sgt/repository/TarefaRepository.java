@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
 
-    List<Tarefa> findAllByTitulo(String titulo);
+    List<Tarefa> findAllByTitulo(String comentario);
 
     @Query("FROM Tarefa WHERE titulo LIKE %:titulo%")
     List<Tarefa> encontarTodosPorTitulo(@Param("titulo") String titulo);

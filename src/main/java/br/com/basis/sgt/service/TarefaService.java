@@ -1,6 +1,7 @@
 package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.Tarefa;
+import br.com.basis.sgt.domain.TipoTarefa;
 import br.com.basis.sgt.repository.TarefaRepository;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TarefaDTO;
@@ -42,6 +43,7 @@ public class TarefaService {
         Tarefa tarefa = tarefaMapper.toEntity(tarefaDTO);
         Tarefa tarefaSalva = tarefaRepository.save(tarefa);
         return tarefaMapper.toDto(tarefaSalva);
+
     }
 
     public void deletarPorId(Long id) {

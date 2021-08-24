@@ -51,6 +51,10 @@ import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar
 import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
 import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
 
+import {HomeDialogComponent} from './views/components/template/home-dialog/home-dialog.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {ComentarioData} from "./views/components/comentario-crud/ComentarioData/comentario-data";
 
 @NgModule({
   declarations: [
@@ -71,7 +75,7 @@ import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtu
     ComentarioDeletarComponent,
 
     TarefaListarComponent,
-     TarefaSalvarComponent,
+    TarefaSalvarComponent,
     TarefaAtualizarComponent,
     TarefaDeletarComponent,
 
@@ -79,6 +83,9 @@ import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtu
     TipoTarefaSalvarComponent,
     TipoTarefaAtualizarComponent,
     TipoTarefaDeletarComponent,
+    HomeDialogComponent,
+    ComentarioData,
+
 
   ],
   imports: [
@@ -105,7 +112,9 @@ import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtu
     MatInputModule,
     MatDatepickerModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatDialogModule,
+    MatSnackBarModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
