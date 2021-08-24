@@ -23,15 +23,20 @@
 
   <mat-form-field appearance="fill" class="field">
     <mat-label>Selecione o Tipo de Tarefa</mat-label>
-
     <mat-select [(ngModel)]="tarefa.tipoTarefa.id" [formControl]="tipoTarefa"  >
       <mat-option *ngFor="let tt of tiposTarefa" [value]="tt.values">
         {{tt.label}}
       </mat-option>
-
     </mat-select>
+  </mat-form-field>
 
-
+  <mat-form-field appearance="fill" class="field">
+    <mat-label>Selecione o Setor Responsavel</mat-label>
+    <mat-select [(ngModel)]="tarefa.responsavel.id" [formControl]="responsavel"  >
+      <mat-option *ngFor="let tt of resposaveis" [value]="tt.values">
+        {{tt.label}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
 

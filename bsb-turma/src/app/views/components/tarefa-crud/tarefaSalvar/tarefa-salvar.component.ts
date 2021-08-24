@@ -1,14 +1,13 @@
 import {Component, OnInit} from "@angular/core";
 
 
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Tarefa} from "../../../../model/tarefa.model";
 import {TarefaService} from "../../../../service/tarefa.service";
 import {DropdownModel} from "../../../../model/dropdown.model";
-import {TipoTarefa} from "../../../../model/tipoTarefa.model";
-import {Responsavel} from "../../../../model/responsavel.model";
 import {TipoTarefaService} from "../../../../service/tipoTarefa.service";
+import {ResponsavelService} from "../../../../service/responsavel.service";
 
 
 @Component({
@@ -19,6 +18,7 @@ import {TipoTarefaService} from "../../../../service/tipoTarefa.service";
 export class TarefaSalvarComponent implements OnInit {
 
   tiposTarefa : DropdownModel[] = [];
+  resposaveis : DropdownModel[] = [];
 
   tarefa: Tarefa = {
     id: '',
@@ -30,10 +30,10 @@ export class TarefaSalvarComponent implements OnInit {
       descricao:''
 
     } ,
-    responsavel: null //{
-     /// id:'',
-     /// setor:''
-   /// }
+    responsavel:  {
+      id:'',
+      setor:''
+    }
   }
 
   id = new FormControl('', [Validators.minLength(1)]);
@@ -41,27 +41,30 @@ export class TarefaSalvarComponent implements OnInit {
   status = new FormControl('', [Validators.minLength(4)]);
   titulo = new FormControl('', [Validators.minLength(4)]);
   tipoTarefa = new FormControl('', []);
+  responsavel = new FormControl('', []);
 
-
-  constructor(private router: Router, private service: TarefaService, private tipoTarefaService: TipoTarefaService) {
+  constructor(private router: Router, private service: TarefaService, private tipoTarefaService: TipoTarefaService, private tipoResponsaveisService: ResponsavelService){
   }
 
   ngOnInit(): void {
     this.findAll();
 
+
   }
 
   findAll(){
-    this.tipoTarefaService.findAllDropDown().subscribe((response)=>{
-      alert("Buscou todos.");
-      this.tiposTarefa = response;
-    }, (error)=>{
-      alert("Erro na requisição.");
+    this.tipoTarefaService.findAllDropDown().subscribe((response)=> {
+      //alert("Buscou todos.");
+      this.tipoResponsaveisService.findAllDropDown().subscribe((response) => {
+        //alert("Buscou todos.");
+        this.tiposTarefa = response;
+        this.resposaveis = response;
+      }, (error) => {
+        alert("Erro na requisição.");
+      })
     })
-
-
-
   }
+
 
   cancel(): void {
     this.router.navigate(['tarefas'])

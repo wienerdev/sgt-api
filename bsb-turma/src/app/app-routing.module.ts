@@ -22,6 +22,7 @@ import {TarefaSalvarComponent} from "./views/components/tarefa-crud/tarefaSalvar
 import {TarefaListarComponent} from "./views/components/tarefa-crud/tarefaListar/tarefa-listar.component";
 import {TarefaDeletarComponent} from "./views/components/tarefa-crud/tarefaDeletar/tarefa-deletar.component";
 import {TarefaAtualizarComponent} from "./views/components/tarefa-crud/tarefaAtualizar/tarefa-atualizar.component";
+import {ComentarioData} from "./views/components/comentario-crud/ComentarioData/comentario-data";
 
 
 const routes: Routes = [
@@ -118,7 +119,9 @@ const routes: Routes = [
    {
      path:'comentario/salvar',
      component: ComentarioSalvarComponent
+
    },
+
     {
     path: 'comentario/delete',
      component: ComentarioDeletarComponent
