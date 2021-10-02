@@ -3,6 +3,8 @@ package br.com.basis.sgt.web.rest;
 import br.com.basis.sgt.service.ResponsavelService;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.ResponsavelDTO;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,15 +13,10 @@ import java.util.List;
 
 @CrossOrigin()
 @RestController
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/api/responsavel")
-    public class ResponsavelResource {
-
-        private final ResponsavelService responsavelService;
-
-        public ResponsavelResource(ResponsavelService responsavelService) {
-
-        this.responsavelService = responsavelService;
-    }
+public class ResponsavelResource {
+    private final ResponsavelService responsavelService;
 
     @GetMapping
     public ResponseEntity<List<ResponsavelDTO>> obterTodos(@RequestParam(value = "setor", required = false) String setor) {
@@ -32,7 +29,7 @@ import java.util.List;
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ResponsavelDTO> update(@PathVariable ("id")Long id, @RequestBody  ResponsavelDTO dto){
+    public ResponseEntity<ResponsavelDTO> update(@PathVariable("id") Long id, @RequestBody ResponsavelDTO dto) {
         dto.setId(id);
         dto = responsavelService.salvar(dto);
         return ResponseEntity.ok(dto);
@@ -51,9 +48,9 @@ import java.util.List;
     }
 
     @GetMapping("/select")
-    public  ResponseEntity<List<DropDownDTO>> findAllSelect(){
+    public ResponseEntity<List<DropDownDTO>> findAllSelect() {
         List<DropDownDTO> dropResponsavel = responsavelService.findAllSelect();
-        return new ResponseEntity<>(dropResponsavel,HttpStatus.OK);
+        return new ResponseEntity<>(dropResponsavel, HttpStatus.OK);
     }
 
 }

@@ -20,4 +20,7 @@ public class TarefaDTO {
     private TipoTarefaDTO tipoTarefa;
     private ResponsavelDTO responsavel;
     private List<ComentarioDTO> comentarios;
+
+    public void setId(Long id) {
+    }
 }
