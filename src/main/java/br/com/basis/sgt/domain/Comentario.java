@@ -28,6 +28,6 @@ public class Comentario {
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private LocalDateTime data;
+    private Timestamp data;
 
 }

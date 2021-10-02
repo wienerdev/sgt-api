@@ -14,4 +14,7 @@ public class ResponsavelDTO {
     private Long id;
     private String setor;
 
+
+    public void setId(Long id) {
+    }
 }

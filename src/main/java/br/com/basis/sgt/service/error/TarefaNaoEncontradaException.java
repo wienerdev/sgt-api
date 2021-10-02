@@ -5,4 +5,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class TarefaNaoEncontradaException extends RuntimeException {
+
+    public TarefaNaoEncontradaException(Long id) {
+
+        super("Tarefa com ID " + id + " não encontrada!");
+    }
 }
