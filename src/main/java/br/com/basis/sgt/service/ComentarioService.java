@@ -6,6 +6,8 @@ import br.com.basis.sgt.service.dto.ComentarioDTO;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.error.ComentarioNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.ComentarioMapper;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,13 +15,11 @@ import java.util.List;
 
 @Service
 @Transactional
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ComentarioService {
     private final ComentarioRepository comentarioRepository;
     private final ComentarioMapper comentarioMapper;
-    public ComentarioService(ComentarioRepository comentarioRepository, ComentarioMapper comentarioMapper) {
-        this.comentarioRepository = comentarioRepository;
-        this.comentarioMapper = comentarioMapper;
-    }
+
     public List<ComentarioDTO> obterTodos(String descricao) {
 
         if (descricao != null && !descricao.isEmpty()) {
@@ -28,17 +28,22 @@ public class ComentarioService {
 
         return comentarioMapper.toDto(comentarioRepository.findAll());
     }
-    public ComentarioDTO obterPorId(Long id) {
-        Comentario comentario = comentarioRepository.findById(id).orElseThrow(ComentarioNaoEncontradaException::new);
-        return comentarioMapper.toDto(comentario);
-    }
-    public ComentarioDTO salvar(ComentarioDTO comentarioDTO) {
-        Comentario comentario;
-        comentario = comentarioMapper.toEntity(comentarioDTO);
+
+    public ComentarioDTO criarComentario(ComentarioDTO comentarioDTO) {
+        Comentario comentario = comentarioMapper.toEntity(comentarioDTO);
         Comentario comentarioSalva = comentarioRepository.save(comentario);
         return comentarioMapper.toDto(comentarioSalva);
     }
+
+    //    Alterado
+    public ComentarioDTO obterPorId(Long id) {
+        Comentario comentario = verificarSeExiste(id);
+        return comentarioMapper.toDto(comentario);
+    }
+
+    //    Alterado
     public void deletarPorId(Long id) {
+        verificarSeExiste(id);
         comentarioRepository.deleteById(id);
     }
 
@@ -46,6 +51,12 @@ public class ComentarioService {
 
         return comentarioRepository.getAllComentarioDropDown();
 
+    }
+
+    //    Inserido
+    private Comentario verificarSeExiste(Long id) throws ComentarioNaoEncontradaException {
+        return comentarioRepository.findById(id)
+                .orElseThrow(() -> new ComentarioNaoEncontradaException(id));
     }
 
 

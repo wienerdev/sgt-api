@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -19,7 +20,10 @@ public class ComentarioDTO {
     private Long id;
     private String descricao;
 
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private LocalDateTime data;
+    private Timestamp data;
+
+    public void setId(Long id) {
+    }
 }

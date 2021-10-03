@@ -1,6 +1,6 @@
-br/com/basis/sgt/SGTTestConfig.class
-br/com/basis/sgt/ComentarioResourceIT.class
-br/com/basis/sgt/SgtApplicationTests.class
-br/com/basis/sgt/ResponsavelResourceIT.class
-br/com/basis/sgt/TipoTarefaResourceIT.class
-br/com/basis/sgt/TarefaResourceIT.class
+br\com\basis\sgt\ComentarioResourceIT.class
+br\com\basis\sgt\ResponsavelResourceIT.class
+br\com\basis\sgt\SGTTestConfig.class
+br\com\basis\sgt\TarefaResourceIT.class
+br\com\basis\sgt\TipoTarefaResourceIT.class
+br\com\basis\sgt\SgtApplicationTests.class

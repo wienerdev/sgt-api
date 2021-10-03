@@ -124,7 +124,7 @@ public class ResponsavelResourceIT implements SGTTestConfig{
 
 
     @Test
-    public void deletetar() throws Exception{
+    public void deletar() throws Exception{
         Long idResponsavel = salvarResponsavel(getResponsavelDTO());
         getMockMvc().perform(
                 delete("/api/responsavel/"+ idResponsavel)
