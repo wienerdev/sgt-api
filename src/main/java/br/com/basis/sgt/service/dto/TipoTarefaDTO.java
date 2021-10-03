@@ -13,4 +13,7 @@ public class TipoTarefaDTO {
 
     private Long id;
     private String descricao;
+
+    public void setId(Long id) {
+    }
 }

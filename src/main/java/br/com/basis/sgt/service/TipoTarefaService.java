@@ -6,6 +6,8 @@ import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import br.com.basis.sgt.service.error.TipoTarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TipoTarefaMapper;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,16 +15,10 @@ import java.util.List;
 
 @Service
 @Transactional
-
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class TipoTarefaService {
-
     private final TipoTarefaRepository tipoTarefaRepository;
     private final TipoTarefaMapper tipoTarefaMapper;
-
-    public TipoTarefaService(TipoTarefaRepository tipoTarefaRepository, TipoTarefaMapper tipoTarefaMapper) {
-        this.tipoTarefaRepository = tipoTarefaRepository;
-        this.tipoTarefaMapper = tipoTarefaMapper;
-    }
 
     public List<TipoTarefaDTO> obterTodos(String descricao) {
 
@@ -34,7 +30,7 @@ public class TipoTarefaService {
     }
 
     public TipoTarefaDTO obterPorId(Long id) {
-        TipoTarefa tipoTarefa = tipoTarefaRepository.findById(id).orElseThrow(TipoTarefaNaoEncontradaException::new);
+        TipoTarefa tipoTarefa = verificarSeExiste(id);
         return tipoTarefaMapper.toDto(tipoTarefa);
     }
 
@@ -45,6 +41,7 @@ public class TipoTarefaService {
     }
 
     public void deletarPorId(Long id) {
+        verificarSeExiste(id);
         tipoTarefaRepository.deleteById(id);
     }
 
@@ -52,6 +49,12 @@ public class TipoTarefaService {
 
         return tipoTarefaRepository.getAllTipoTarefaDropDown();
 
+    }
+
+    //    Inserido
+    private TipoTarefa verificarSeExiste(Long id) throws TipoTarefaNaoEncontradaException {
+        return tipoTarefaRepository.findById(id)
+                .orElseThrow(() -> new TipoTarefaNaoEncontradaException(id));
     }
 
 }

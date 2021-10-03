@@ -2,6 +2,7 @@ package br.com.basis.sgt.repository;
 
 import br.com.basis.sgt.domain.Comentario;
 import br.com.basis.sgt.service.dto.DropDownDTO;
+import lombok.Builder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,5 +21,6 @@ public interface ComentarioRepository extends JpaRepository<Comentario, Long> {
 
     @Query("SELECT new br.com.basis.sgt.service.dto.DropDownDTO(r.id,r.descricao) from Comentario r order by r.descricao asc")
     List<DropDownDTO> getAllComentarioDropDown();
+
 }
 

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-08-20T09:19:37-0300",
-    comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_292 (Private Build)"
+    date = "2021-10-02T17:19:27-0300",
+    comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_302 (Amazon.com Inc.)"
 )
 @Component
 public class ComentarioMapperImpl implements ComentarioMapper {
