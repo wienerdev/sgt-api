@@ -27,14 +27,14 @@ public class Tarefa {
     private String status;
 
     @JoinColumn(name = "id_tipo")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private TipoTarefa tipoTarefa;
 
     @JoinColumn(name = "id_responsavel")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Responsavel responsavel;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_tarefa")
     List<Comentario> comentarios;
 
