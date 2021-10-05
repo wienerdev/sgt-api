@@ -6,10 +6,10 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "tarefa")
+@Getter
+@Setter
 public class Tarefa {
 
     @Id
@@ -26,15 +26,15 @@ public class Tarefa {
     @Column(name = "status")
     private String status;
 
-    @JoinColumn(name = "id_tipo")
-    @ManyToOne
-    private TipoTarefa tipoTarefa;
-
     @JoinColumn(name = "id_responsavel")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Responsavel responsavel;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_tipo")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private TipoTarefa tipoTarefa;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_tarefa")
     List<Comentario> comentarios;
 

@@ -24,6 +24,7 @@ public class TarefaResource {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<TarefaDTO> salvar(@RequestBody TarefaDTO tarefa) {
         return ResponseEntity.ok(tarefaService.salvar(tarefa));
     }

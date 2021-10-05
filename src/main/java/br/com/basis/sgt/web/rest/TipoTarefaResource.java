@@ -26,14 +26,15 @@ public class TipoTarefaResource {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<TipoTarefaDTO> criarTipoTarefa(@RequestBody TipoTarefaDTO tipoTarefa) {
-        return ResponseEntity.ok(tipoTarefaService.salvar(tipoTarefa));
+        return ResponseEntity.ok(tipoTarefaService.criarTipoTarefa(tipoTarefa));
     }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<TipoTarefaDTO> update(@PathVariable ("id")Long id, @RequestBody TipoTarefaDTO dto){
         dto.setId(id);
-        dto = tipoTarefaService.salvar(dto);
+        dto = tipoTarefaService.criarTipoTarefa(dto);
         return ResponseEntity.ok(dto);
     }
 

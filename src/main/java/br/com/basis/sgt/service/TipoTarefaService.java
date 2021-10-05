@@ -34,7 +34,7 @@ public class TipoTarefaService {
         return tipoTarefaMapper.toDto(tipoTarefa);
     }
 
-    public TipoTarefaDTO salvar(TipoTarefaDTO tipoTarefaDTO) {
+    public TipoTarefaDTO criarTipoTarefa(TipoTarefaDTO tipoTarefaDTO) {
         TipoTarefa tipoTarefa = tipoTarefaMapper.toEntity(tipoTarefaDTO);
         TipoTarefa tipoTarefaSalva = tipoTarefaRepository.save(tipoTarefa);
         return tipoTarefaMapper.toDto(tipoTarefaSalva);
