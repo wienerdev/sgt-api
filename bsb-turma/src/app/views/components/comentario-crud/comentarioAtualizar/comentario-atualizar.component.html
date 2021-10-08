@@ -1,9 +1,9 @@
-<form class="form mat-elevation-z8">
+<form class="form mat-elevation-z0">
 
-  <h1>ATUALIZAR COMENTARIO</h1>
+  <h1>ATUALIZAR COMENTÁRIO</h1>
 
   <mat-form-field appearance="fill" class="field" >
-    <mat-label>Selecione o comentario que deseja atualizar </mat-label>
+    <mat-label>Selecione o comentário que deseja atualizar </mat-label>
 
     <mat-select selected="setor" [formControl]="id">
       <mat-option *ngFor="let descricao of comentarios" [value]="descricao.values">
@@ -17,7 +17,7 @@
 </form>
 <form [formGroup]="form" class="form">
   <form  class = "example-form" >
-    <mat-form-field  class = "example-full-width"  appear = "fill" >
+    <mat-form-field  class = "field"  appear = "fill" >
       <mat-label > Atualização </mat-label >
       <input [(ngModel)]="comentario.descricao" [formControl]="descricao" required name="" matInput maxlength="100" placeholder="Ex. Prazo de entrega adiantado">
     </mat-form-field >

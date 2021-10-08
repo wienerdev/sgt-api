@@ -26,16 +26,16 @@ public class Tarefa {
     @Column(name = "status")
     private String status;
 
-    @JoinColumn(name = "id_tipo")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_tipo", nullable = false)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private TipoTarefa tipoTarefa;
 
-    @JoinColumn(name = "id_responsavel")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_responsavel", nullable = false)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Responsavel responsavel;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_tarefa")
+    @OneToMany(fetch = FetchType.LAZY)
     List<Comentario> comentarios;
 
 

@@ -1,6 +1,6 @@
 <form class="form">
 
-  <h1>NOVO COMENTARIO</h1>
+  <h1>NOVO COMENTÁRIO</h1>
 
 
 
@@ -11,7 +11,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Descrição do Comentario</mat-label>
+    <mat-label>Descrição do Comentário</mat-label>
     <input [(ngModel)]="comentario.descricao" [formControl]="descricao" required descricao="descricao" maxlength="400" matInput placeholder="Ex: Estamos esperando a entrega dos requisitos para iniciarmos a codificação.">
     <mat-error *ngIf="descricao.invalid">{{ errorValidDescricao() }}</mat-error>
   </mat-form-field>
