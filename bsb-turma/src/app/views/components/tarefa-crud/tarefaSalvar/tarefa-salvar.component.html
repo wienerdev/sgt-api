@@ -4,13 +4,13 @@
 
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Titulo da Tarefa</mat-label>
+    <mat-label>Título da Tarefa</mat-label>
     <input [(ngModel)]="tarefa.titulo" [formControl]="titulo" required titulo="titulo" maxlength="100" matInput placeholder="Ex: Levantamento de Requisitos">
     <mat-error *ngIf="titulo.invalid">{{ errorValidTitulo() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Descricão da Tarefa</mat-label>
+    <mat-label>Descrição da Tarefa</mat-label>
     <input [(ngModel)]="tarefa.descricao" [formControl]="descricao" required descricao="descricao" maxlength="100" matInput placeholder="Ex: Levantas os requisitos para implementar um CRuD das Tarefas">
     <mat-error *ngIf="descricao.invalid">{{ errorValidDescricao() }}</mat-error>
   </mat-form-field>
@@ -31,7 +31,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="field">
-    <mat-label>Selecione o Setor Responsavel</mat-label>
+    <mat-label>Selecione o Setor Responsável</mat-label>
     <mat-select [(ngModel)]="tarefa.responsavel.id" [formControl]="responsavel"  >
       <mat-option *ngFor="let tt of resposaveis" [value]="tt.values">
         {{tt.label}}
