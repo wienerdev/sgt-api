@@ -78,7 +78,7 @@ export class TarefaAtualizarComponent implements OnInit {
   }
 
   update(): void {
-    // console.log(this.id.value);
+    console.log(this.id.value);
 
     console.log(this['id'].value)
     this.service.update(this.tarefa, this['id'].value).subscribe((resposta) => {
