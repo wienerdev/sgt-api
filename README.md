@@ -25,10 +25,12 @@ Projeto fullstack para um Sistema de Gerenciamento de Tarefas, utilizando Java 1
 ## ⚠ Pré-requisitos para execução do projeto
 
 * IntelliJ 2020.2.4
+* Angular CLI
+* Docker
 * Java 8 ou versões superiores
 * Maven 3.8.1 ou versões superiores
-* Node.js
-* Docker
+* Node.js 10x ou versões superiores
+
 
 ## 📌 Como utilizar?
 
