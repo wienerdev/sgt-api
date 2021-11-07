@@ -18,7 +18,7 @@ export class TipoTarefaListarComponent implements AfterViewInit {
   tipoTarefa: TipoTarefa [] = [];
 
 
-  displayedColumns: string[] = ['id', 'descricao'];
+  displayedColumns: string[] = ['id', 'descricao','action'];
   dataSource = new MatTableDataSource<TipoTarefa>(this.tipoTarefa);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

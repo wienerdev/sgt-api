@@ -17,7 +17,7 @@ export class ComentarioListarComponent implements AfterViewInit {
   comentario: Comentario [] = [];
 
 
-  displayedColumns: string[] = ['id', 'data','descricao'];
+  displayedColumns: string[] = ['id', 'data','descricao', 'action'];
   dataSource = new MatTableDataSource<Comentario>(this.comentario);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

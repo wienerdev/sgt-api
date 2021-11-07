@@ -1,13 +1,16 @@
 package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.Tarefa;
+import br.com.basis.sgt.domain.TipoTarefa;
 import br.com.basis.sgt.repository.TarefaRepository;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TarefaDTO;
+import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import br.com.basis.sgt.service.error.TarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TarefaMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,10 +18,15 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+
 public class TarefaService {
     private final TarefaRepository tarefaRepository;
     private final TarefaMapper tarefaMapper;
+
+    public TarefaService(TarefaRepository tarefaRepository, TarefaMapper tarefaMapper) {
+        this.tarefaRepository = tarefaRepository;
+        this.tarefaMapper = tarefaMapper;
+    }
 
     public List<TarefaDTO> obterTodos(String titulo) {
 
@@ -26,7 +34,7 @@ public class TarefaService {
             return tarefaMapper.toDto(tarefaRepository.encontarTodosPorTitulo(titulo));
         }
 
-        return tarefaMapper.toDto(tarefaRepository.findAll());
+        return tarefaMapper.toDto(tarefaRepository.findAll(Sort.by("id")));
     }
 
     public TarefaDTO obterPorId(Long id) {
@@ -39,6 +47,7 @@ public class TarefaService {
         Tarefa tarefaSalva = tarefaRepository.save(tarefa);
         return tarefaMapper.toDto(tarefaSalva);
     }
+
 
     public void deletarPorId(Long id) {
         verificarSeExiste(id);

@@ -27,11 +27,11 @@ public class Tarefa {
     private String status;
 
     @JoinColumn(name = "id_tipo", nullable = false)
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private TipoTarefa tipoTarefa;
 
     @JoinColumn(name = "id_responsavel", nullable = false)
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Responsavel responsavel;
 
     @JoinColumn(name = "id_tarefa")

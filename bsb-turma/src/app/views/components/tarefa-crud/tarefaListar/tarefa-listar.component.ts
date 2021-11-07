@@ -19,7 +19,7 @@ export class TarefaListarComponent implements AfterViewInit {
   tarefa: Tarefa [] = [];
 
 
-  displayedColumns: string[] = ['id', 'titulo','descricao','status'];
+  displayedColumns: string[] = ['id', 'titulo','descricao','status','action'];
   dataSource = new MatTableDataSource<Tarefa>(this.tarefa);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

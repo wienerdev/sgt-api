@@ -12,38 +12,32 @@ import {TarefaService} from "../../../../service/tarefa.service";
 })
 export class TarefaDeletarComponent implements OnInit {
 
-  tarefas : DropdownModel[] = [];
+
 
   form : FormGroup;
 
+  idParam : null
 
   constructor(
+    private actRoute: ActivatedRoute,
     private router: Router,
     private service: TarefaService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder) {
+
+    this.idParam = this.actRoute.snapshot.params.id;
+  }
 
 
   ngOnInit(): void {
-    this.findAll();
     this.form = this.buildForm();
   }
 
-  findAll(){
-    this.service.findAllDropDown().subscribe((response)=>{
-      alert("Buscou todos.");
-      this.tarefas = response;
-    }, (error)=>{
-      alert("Erro na requisição.");
-
-    })
-  }
 
   deletar(): void {
-    console.log(this.form.controls['id'].value)
-    this.service.deletar(this.form.controls['id'].value).subscribe((resposta) => {
+    this.service.deletar(this.idParam).subscribe((resposta) => {
       this.router.navigate(['tarefas'])
-      this.service.message('Tipo de Tarefa excluído com sucesso!')
+      this.service.message('Tarefa excluído com sucesso!')
     })
   }
 
@@ -52,9 +46,7 @@ export class TarefaDeletarComponent implements OnInit {
   }
 
   buildForm(){
-    return this.formBuilder.group({
-      id: [null,[Validators.required]],
-    }, {updateOn: 'change'});
+    return this.formBuilder.group({});
   }
 
 

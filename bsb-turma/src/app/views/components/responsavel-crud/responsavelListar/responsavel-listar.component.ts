@@ -17,7 +17,7 @@ export class ResponsavelListarComponent implements AfterViewInit {
   responsavel: Responsavel[] = [];
 
 
-  displayedColumns: string[] = ['id', 'setor'];
+  displayedColumns: string[] = ['id', 'setor', 'action'];
   dataSource = new MatTableDataSource<Responsavel>(this.responsavel);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

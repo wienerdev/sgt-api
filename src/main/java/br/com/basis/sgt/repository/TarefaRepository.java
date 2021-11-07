@@ -18,6 +18,8 @@ public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
     @Query("FROM Tarefa WHERE titulo LIKE %:titulo%")
     List<Tarefa> encontarTodosPorTitulo(@Param("titulo") String titulo);
 
-    @Query("SELECT new br.com.basis.sgt.service.dto.DropDownDTO(r.id,r.titulo) from Tarefa r order by r.titulo asc")
-    List<DropDownDTO> getAllTarefaDropDown();
+
+
+     @Query("SELECT new br.com.basis.sgt.service.dto.DropDownDTO(r.id,r.titulo) from Tarefa r order by r.titulo asc")
+     List<DropDownDTO> getAllTarefaDropDown();
 }

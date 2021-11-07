@@ -1,13 +1,13 @@
 package br.com.basis.sgt.service;
 
 import br.com.basis.sgt.domain.TipoTarefa;
+import br.com.basis.sgt.repository.TarefaRepository;
 import br.com.basis.sgt.repository.TipoTarefaRepository;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import br.com.basis.sgt.service.error.TipoTarefaNaoEncontradaException;
 import br.com.basis.sgt.service.mapper.TipoTarefaMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,10 +15,18 @@ import java.util.List;
 
 @Service
 @Transactional
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+
 public class TipoTarefaService {
+
     private final TipoTarefaRepository tipoTarefaRepository;
     private final TipoTarefaMapper tipoTarefaMapper;
+
+
+    public TipoTarefaService(TipoTarefaMapper tipoTarefaMapper, TipoTarefaRepository tipoTarefaRepository) {
+        this.tipoTarefaMapper = tipoTarefaMapper;
+        this.tipoTarefaRepository = tipoTarefaRepository;
+
+    }
 
     public List<TipoTarefaDTO> obterTodos(String descricao) {
 

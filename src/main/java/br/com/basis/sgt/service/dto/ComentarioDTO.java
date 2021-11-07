@@ -23,7 +23,4 @@ public class ComentarioDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Timestamp data;
-
-    public void setId(Long id) {
-    }
 }

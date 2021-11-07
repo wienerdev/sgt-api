@@ -4,18 +4,7 @@
 
 
 
-  <mat-form-field appearance="fill" class="field">
-    <mat-label>Selecione a tarefa que deseja excluir</mat-label>
-
-    <mat-select selected="setor" formControlName="id">
-      <mat-option *ngFor="let descricao of tarefas" [value]="descricao.values">
-        {{descricao.label}}
-      </mat-option>
-
-    </mat-select>
-
-
-  </mat-form-field>
+  Tem certeza que deseja excluir?
 
 
   <button class="mat-elevation-z8" (click)="deletar()"mat-stroked-button color="accent">EXCLUIR</button>

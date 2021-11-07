@@ -19,8 +19,8 @@ export class TarefaService {
   }
 
 
-  encontrarPorId(id: any): Observable<TipoTarefa> {
-    const url = '${this.baseUrl}/api/tarefas/${id}';
+  encontrarPorId(id: any): Observable<Tarefa> {
+    const url =  this.baseUrl +"/api/tarefas/" + id;
     return this.http.get<Tarefa>(url);
   }
 

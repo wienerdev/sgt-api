@@ -8,6 +8,7 @@ import {TarefaService} from "../../../../service/tarefa.service";
 import {DropdownModel} from "../../../../model/dropdown.model";
 import {TipoTarefaService} from "../../../../service/tipoTarefa.service";
 import {ResponsavelService} from "../../../../service/responsavel.service";
+import validate = WebAssembly.validate;
 
 
 @Component({
@@ -37,11 +38,11 @@ export class TarefaSalvarComponent implements OnInit {
   }
 
   id = new FormControl('', [Validators.minLength(1)]);
-  descricao = new FormControl('', [Validators.minLength(4)]);
-  status = new FormControl('', [Validators.minLength(4)]);
-  titulo = new FormControl('', [Validators.minLength(4)]);
-  tipoTarefa = new FormControl('', []);
-  responsavel = new FormControl('', []);
+  descricao = new FormControl('', [Validators.minLength(4),Validators.max(20)]);
+  status = new FormControl('', [Validators.minLength(4),Validators.max(20)]);
+  titulo = new FormControl('', [Validators.minLength(4),Validators.max(20)]);
+  tipoTarefa = new FormControl('',[Validators.minLength(4),Validators.max(20)]);
+  responsavel = new FormControl('', [Validators.minLength(4),Validators.max(20)]);
 
   constructor(private router: Router, private service: TarefaService, private tipoTarefaService: TipoTarefaService, private tipoResponsaveisService: ResponsavelService){
   }
@@ -55,10 +56,10 @@ export class TarefaSalvarComponent implements OnInit {
   findAll(){
     this.tipoTarefaService.findAllDropDown().subscribe((response)=> {
       //alert("Buscou todos.");
-      this.tipoResponsaveisService.findAllDropDown().subscribe((response) => {
+      this.tipoResponsaveisService.findAllDropDown().subscribe((responsavel) => {
         //alert("Buscou todos.");
         this.tiposTarefa = response;
-        this.resposaveis = response;
+        this.resposaveis = responsavel;
       }, (error) => {
         alert("Erro na requisição.");
       })
@@ -72,7 +73,7 @@ export class TarefaSalvarComponent implements OnInit {
 
 
   salvar(): void {
-    //this.tipoTarefa.value
+
 
     this.service.salvar(this.tarefa).subscribe((res) => {
       this.router.navigate(['tarefas'])

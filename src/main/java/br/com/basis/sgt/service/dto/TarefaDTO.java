@@ -21,6 +21,6 @@ public class TarefaDTO {
     private ResponsavelDTO responsavel;
     private List<ComentarioDTO> comentarios;
 
-    public void setId(Long id) {
-    }
+
+
 }

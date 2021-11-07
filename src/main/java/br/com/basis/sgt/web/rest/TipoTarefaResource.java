@@ -4,7 +4,6 @@ import br.com.basis.sgt.service.TipoTarefaService;
 import br.com.basis.sgt.service.dto.DropDownDTO;
 import br.com.basis.sgt.service.dto.TipoTarefaDTO;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +14,15 @@ import java.util.List;
 
 @CrossOrigin()
 @RestController
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+
 @RequestMapping("/api/tipotarefas")
 public class TipoTarefaResource {
     private final TipoTarefaService tipoTarefaService;
+
+    public TipoTarefaResource(TipoTarefaService tipoTarefaService) {
+        this.tipoTarefaService = tipoTarefaService;
+    }
+
 
     @GetMapping
     public ResponseEntity<List<TipoTarefaDTO>> obterTodos(@RequestParam(value = "descricao", required = false) String descricao) {
