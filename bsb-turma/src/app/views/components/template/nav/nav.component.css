@@ -1,11 +1,15 @@
 .container {
     height: 89.1%;
+
+  background:black;
 }
 
 mat-icon {
     margin-right: 1rem;
+color:#FFFF00;
 }
 
 button {
     margin: 1rem auto 0 1rem;
+
 }
