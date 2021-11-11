@@ -24,7 +24,9 @@ export class ResponsavelSalvarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
   }
+
 
   cancel(): void {
     this.router.navigate(['responsavel'])

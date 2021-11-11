@@ -1,15 +1,19 @@
 .container {
     height: 89.1%;
 
-  background:black;
+  background:#262526;
 }
 
 mat-icon {
     margin-right: 1rem;
-color:#FFFF00;
+color:#64B9FF;
 }
 
 button {
     margin: 1rem auto 0 1rem;
 
+}
+
+.sidenav-content {
+    background-color: #262526;
 }
