@@ -36,8 +36,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 * Para executar o projeto localmente, acesse a [Wiki!](https://github.com/CaioACN/sgt-2/wiki/Configura%C3%A7%C3%B5es-de-Ambiente-(Linux-e-Windows))
 
-* Caso você queira acessar o sistema em produção, clique aqui!
-
 
 <br>
 
