@@ -1,6 +1,4 @@
-<h1 align="center">
-Em construção 👷‍♂️
-</h1>
+
 <br>
 <h1 align="center">
 Sistema de Gerenciamento de Tarefas 📑 
@@ -8,66 +6,41 @@ Sistema de Gerenciamento de Tarefas 📑
 <br>
 <h2>🖥️ Tela principal </h2>
   <p align="center">
-    <img src="https://i.ibb.co/SNMPqLk/sgt.png" alt="sgt" border="0" width="100%">
-  </p>
-</br>
-
-<h2>🖥️ Cadastro de Tipo de Tarefa </h2>
-  <p align="center">
-    <img src="https://i.ibb.co/kqX5NDL/sgt-crud.png" alt="sgt-crud" border="0" width="100%">
+    <img src="https://user-images.githubusercontent.com/78852609/142920693-feca2521-c893-4e75-bc80-a6022b24474e.gif" alt="sgt" border="0" width="100%">
   </p>
 </br>
 
 ## 💬 Sobre o repositório
 
-Projeto fullstack para um Sistema de Gerenciamento de Tarefas, utilizando Java 11, Spring Boot, Maven, Hibernate, Angular e PostgreSQL.
+Este projeto foi inspirado por todas as aplicações Open Sources existentes, utilizando das mais novas tecnologias no mundo de desenvolvimento e do mercado, como Java, Spring Boot, Maven, Hibernate, Angular e PostgreSQL e mais.
 
-## ⚠ Pré-requisitos para execução do projeto
+<br>
 
-* IntelliJ 2020.2.4
-* Angular CLI
-* Docker
-* Java 8 ou versões superiores
-* Maven 3.8.1 ou versões superiores
-* Node.js 10x ou versões superiores
+## 🛠 Tecnologias utilizadas
 
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+* [Angular CLI](https://angular.io/cli)
+* [Angular Material](https://material.angular.io/)
+* [Docker](https://www.docker.com/)
+* [Java](https://www.oracle.com/br/java/)
+* [Maven](https://maven.apache.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Hibernate](https://hibernate.org/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Liquibase](https://www.liquibase.org/)
+
+<br>
 
 ## 📌 Como utilizar?
 
-Para executar o projeto no terminal, vá no diretório docker/containers/postgres e digite:
+* Para executar o projeto localmente, acesse a [Wiki!](https://github.com/CaioACN/sgt-2/wiki/Configura%C3%A7%C3%B5es-de-Ambiente-(Linux-e-Windows))
 
-```shell script
-      docker-compose up
-```
+* Caso você queira acessar o sistema em produção, clique aqui!
 
-Após executar o comando acima, clique em DataBases no canto direito e entre com as seguintes credenciais:
 
-```
-      user: postgres
-      password: SGT
-```
+<br>
 
-Execute o projeto (SgtApplication):
-
-```
-//     Clique em Run "SgtApplication" ou digite Shift+F10
-```
-
-Depois disso, no diretório bsb-turma, digite:
-
-```
-      npm install
-```
-
-```
-      npm start
-```
-
-Acesse o sistema em seu navegador pelo seguinte endereço:
-
-```
-      http://localhost:4200/
-```
 
 ## 🧠 Links importantes
 
