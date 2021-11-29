@@ -12,7 +12,7 @@ Sistema de Gerenciamento de Tarefas 📑
 
 ## 💬 Sobre o repositório
 
-Este projeto foi inspirado por todas as aplicações Open Sources existentes, utilizando das mais novas tecnologias no mundo de desenvolvimento e do mercado, como Java, Spring Boot, Maven, Hibernate, Angular e PostgreSQL e mais.
+Este projeto foi inspirado por todas as aplicações Open Sources existentes, utilizando das mais novas tecnologias no mundo de desenvolvimento e do mercado, como Java, Spring Boot, Maven, Hibernate, Angular, PostgreSQL e mais. Foi criado, principalmente, com o intuito de oferecer um serviço gratuito a quem quiser usar, tanto para gerenciamento das tarefas do seu dia a dia, quanto como um projeto exemplo de utilização das diversas tecnologias citadas.
 
 <br>
 
